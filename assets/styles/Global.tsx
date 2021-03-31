@@ -10,6 +10,8 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Plus Jakarta Sans Regular', 'Helvetica Neue', 'Helvetica',
     'Arial', sans-serif;
     text-rendering: optimizeLegibility;
+
+    overflow-x: hidden;
     
     // Dark mode configuration provided by styled-components
     @media (prefers-color-scheme: dark) {
