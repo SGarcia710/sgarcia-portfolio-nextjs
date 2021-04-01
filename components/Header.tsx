@@ -36,6 +36,10 @@ const NavBar = styled.nav`
       text-decoration: underline;
     }
   }
+
+  @media (max-width: 414px) {
+    display: none;
+  }
 `;
 
 const Header = () => {
