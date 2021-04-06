@@ -52,4 +52,10 @@ const NETWORKS = [
   },
 ];
 
-export { FONTS, NETWORKS };
+const IMAGES = [
+  '/images/onepiece.jpg',
+  '/images/fullmetal.png',
+  '/images/badbunny.jpg',
+];
+
+export { FONTS, NETWORKS, IMAGES };

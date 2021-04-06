@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { FONTS } from '../constants';
+import Link from 'next/link';
 
 const Container = styled.div`
   width: 100%;
@@ -45,15 +46,17 @@ const NavBar = styled.nav`
 const Header = () => {
   return (
     <Container>
-      <LogoContainer>
-        <p>sebastián garcía</p>
-      </LogoContainer>
+      <Link href="/">
+        <LogoContainer>
+          <p>sebastián garcía</p>
+        </LogoContainer>
+      </Link>
 
       <NavBar>
-        <a href="#">Blog</a>
-        <a href="#">About</a>
-        <a href="#">Projects</a>
-        <a href="#">Contact</a>
+        <Link href="/blog">Blog</Link>
+        <Link href="#">About</Link>
+        <Link href="#">Projects</Link>
+        <Link href="#">Contact</Link>
       </NavBar>
     </Container>
   );
