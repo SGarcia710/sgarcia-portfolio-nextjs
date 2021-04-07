@@ -33,7 +33,7 @@ const PostDetail = () => {
 
   return (
     <Container>
-      <Image layoutId={postId.toString()} src={IMAGES[postId as string]} />
+      <Image layoutId={postId?.toString()} src={IMAGES[postId as string]} />
     </Container>
   );
 };
