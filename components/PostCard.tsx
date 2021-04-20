@@ -20,7 +20,9 @@ const PostDetailRow = styled.div`
 const PostDate = styled.p`
   color: #ccc6c6;
 `;
-const PostCategory = styled.p``;
+const PostCategory = styled.p`
+  text-transform: capitalize;
+`;
 const PostImage = styled(motion.img)`
   width: 100%;
   margin-bottom: 12px;

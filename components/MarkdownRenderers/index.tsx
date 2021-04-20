@@ -28,7 +28,6 @@ const components = {
       <code className={className} {...props} />
     );
   },
-  wrapper: ({ children }) => <>{children}</>,
 };
 
 const MarkdownRenderer = (props: { content: string }) => {
