@@ -34,6 +34,7 @@ const MarkdownRenderer = (props: { content: string }) => {
   return (
     <ReactMarkdown
       children={props.content}
+      // @ts-ignore
       components={components}
       remarkPlugins={[gfm]}
     />
