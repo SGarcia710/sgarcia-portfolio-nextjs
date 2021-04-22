@@ -37,6 +37,7 @@ const NavBar = styled.nav`
     font-size: 1.3rem;
     font-weight: 400;
     border-radius: 0.35rem;
+    transition: 0.2s;
     &:hover {
       background-color: ${COLORS.lightBackground};
       color: white;

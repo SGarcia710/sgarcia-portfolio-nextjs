@@ -52,6 +52,12 @@ export const A = styled.a`
   text-decoration: none;
   font-weight: 700;
   border-color: transparent;
+  transition: 0.1s;
+  &:hover {
+    color: white;
+    border-bottom: 3px solid #96b4f9;
+    border-color: ${COLORS.linkColor};
+  }
 `;
 
 export const UL = styled.ul`
