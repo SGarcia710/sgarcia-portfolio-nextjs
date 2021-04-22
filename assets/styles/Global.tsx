@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
   body {
-    /* background: #f4f7f6; */
+    
     font-family: 'Plus Jakarta Sans Regular', 'Helvetica Neue', 'Helvetica',
     'Arial', sans-serif;
     text-rendering: optimizeLegibility;
