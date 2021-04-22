@@ -21,7 +21,7 @@ const Container = styled.div`
 const Row = styled.div<{ isDisabled: boolean }>`
   display: flex;
   align-items: center;
-  /* cursor: ${(props) => (!!props.isDisabled ? 'default' : 'pointer')}; */
+  cursor: ${(props) => (!!props.isDisabled ? 'default' : 'pointer')};
   opacity: ${(props) => (!!props.isDisabled ? 0.4 : 1)};
 `;
 const Text = styled.p<{ marginLeft?: boolean; marginRight?: boolean }>`

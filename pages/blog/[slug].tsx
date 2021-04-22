@@ -31,7 +31,7 @@ const Image = styled(motion.img)`
 
 const Body = styled.article`
   max-width: 1000px;
-  @media (max-width: 425px) {
+  @media (max-width: 818px) {
     width: 100vw;
     padding: 0 1.5rem;
     margin-left: auto;
