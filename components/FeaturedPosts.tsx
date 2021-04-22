@@ -15,7 +15,7 @@ const FeaturedPost = styled.a`
   height: 100%;
   width: calc(100% / 3);
   position: relative;
-  /* cursor: pointer; */
+  cursor: pointer;
   display: flex;
   align-items: flex-end;
   transition: 0.2s;

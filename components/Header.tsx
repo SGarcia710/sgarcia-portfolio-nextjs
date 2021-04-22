@@ -22,7 +22,7 @@ const Container = styled(motion.div)`
 const LogoContainer = styled.div`
   a {
     font-family: ${FONTS.plusJakarta.bold};
-    /* cursor: pointer; */
+    cursor: pointer;
     font-size: 1.5rem;
     color: white;
     margin-bottom: 0;
