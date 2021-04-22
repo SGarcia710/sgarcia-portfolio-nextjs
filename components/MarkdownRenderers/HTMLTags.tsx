@@ -109,7 +109,7 @@ export const IMG = styled.img`
   width: 100%;
 `;
 export const TABLE = styled.table`
-  display: block;
+  display: table;
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
@@ -156,6 +156,7 @@ export const TABLE = styled.table`
 
   @media (max-width: 425px) {
     font-size: 1.05rem;
+    display: block;
     tbody,
     thead {
       white-space: nowrap;
