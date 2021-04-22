@@ -30,9 +30,10 @@ const PostImage = styled(motion.img)`
   height: 170px;
   object-fit: cover;
 `;
-const PostTitle = styled.div`
+const PostTitle = styled.h4`
   font-family: ${FONTS.plusJakarta.bold};
   font-size: 28px;
+  line-height: 1.1;
   margin-bottom: 12px;
 `;
 const PostDescription = styled.p`
