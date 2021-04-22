@@ -154,7 +154,9 @@ const PostDetail = ({ post }: { post: Post }) => {
                 </span>
               </Sign>
               <Tags>
-                <Tag>{post.type}</Tag>
+                {React.Children.toArray(
+                  post.categories.map((category) => <Tag>{category.title}</Tag>)
+                )}
               </Tags>
             </Metadata>
             <Description>{post.description}</Description>

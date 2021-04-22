@@ -7,4 +7,10 @@ type Post = {
   slug: string;
   createdAt: Date;
   body: string;
+  categories: PostCategory[];
+};
+
+type PostCategory = {
+  title: string;
+  uid: string;
 };
