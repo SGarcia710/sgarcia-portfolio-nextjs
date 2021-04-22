@@ -1,11 +1,7 @@
 import styled from 'styled-components';
-import { COLORS } from '../../constants';
+import { COLORS, FONTS } from '../../constants';
 
-export const P = styled.p`
-  font-size: 1.3rem;
-  margin: 0 0 1.5rem;
-`;
-
+export const P = styled.p``;
 export const H4 = styled.h4`
   color: ${COLORS.mediumFontColor};
   font-weight: 600;
@@ -17,8 +13,14 @@ export const H4 = styled.h4`
   padding-top: 1rem;
   margin-top: 3rem;
   margin-bottom: 1rem;
+  &:not(:first-child) {
+    margin-top: 3rem;
+  }
+  @media (max-width: 414px) {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
 `;
-
 export const H2 = styled.h2`
   color: ${COLORS.mediumFontColor};
   letter-spacing: -0.1rem;
@@ -32,8 +34,13 @@ export const H2 = styled.h2`
   margin-top: 3rem;
   padding-top: 1rem;
   -webkit-font-smoothing: subpixel-antialiased;
+  &:not(:first-child) {
+    margin-top: 3rem;
+  }
+  @media (max-width: 414px) {
+    font-size: 1.6rem;
+  }
 `;
-
 export const H3 = styled.h3`
   color: ${COLORS.mediumFontColor};
   -webkit-font-smoothing: antialiased;
@@ -45,8 +52,15 @@ export const H3 = styled.h3`
   font-weight: 600;
   padding-top: 1rem;
   margin-top: 3rem;
-`;
 
+  &:not(:first-child) {
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 414px) {
+    font-size: 1.5rem;
+  }
+`;
 export const A = styled.a`
   color: ${COLORS.linkColor};
   text-decoration: none;
@@ -59,11 +73,10 @@ export const A = styled.a`
     border-color: ${COLORS.linkColor};
   }
 `;
-
 export const UL = styled.ul`
   margin: 0 0 1.5rem;
   padding: 0 2rem;
-  font-size: 1.3rem;
+  padding-bottom: 0.3rem;
   li {
     padding-bottom: 0.3rem;
     display: list-item;
@@ -93,7 +106,7 @@ export const CODE = styled.code`
   background-color: ${COLORS.codeBackgroundColor};
 `;
 export const IMG = styled.img`
-  max-width: 100%;
+  width: 100%;
 `;
 export const TABLE = styled.table`
   display: block;
@@ -102,7 +115,6 @@ export const TABLE = styled.table`
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
-  display: table;
   border: 1px solid #111;
   font-size: 1.3rem;
   margin: 0 0 1.5rem;
@@ -140,5 +152,36 @@ export const TABLE = styled.table`
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
+  }
+
+  @media (max-width: 414px) {
+    font-size: 1.05rem;
+    tbody,
+    thead {
+      white-space: nowrap;
+    }
+  }
+`;
+export const BLOCKQUOTE = styled.blockquote`
+  margin: 2rem 0;
+  padding: 1rem;
+  background: ${COLORS.blockquote};
+  font-weight: 400;
+  border-radius: 0.35rem;
+  color: rgba(255, 255, 255, 0.9);
+  border-left: 3px solid ${COLORS.linkColor};
+  p {
+    max-width: 100% !important;
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &:not(pre) > code[class*='language-'] {
+    background: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  @media (min-width: 800px) {
+    padding: 2rem;
   }
 `;

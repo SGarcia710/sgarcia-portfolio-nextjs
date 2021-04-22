@@ -12,6 +12,7 @@ const Container = styled.div`
     color: #222323;
     white-space: nowrap;
     text-transform: uppercase;
+    margin: 0;
   }
 
   &:hover {

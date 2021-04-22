@@ -12,7 +12,7 @@ import {
 } from '../../components/AnimationsWrappers/YTransition';
 
 const Container = styled.div`
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
 
   display: flex;
@@ -24,10 +24,19 @@ const Image = styled(motion.img)`
   width: 100%;
   height: 400px;
   object-fit: cover;
+  @media (max-width: 414px) {
+    height: 200px;
+  }
 `;
 
 const Body = styled.article`
-  width: 1000px;
+  max-width: 1000px;
+  @media (max-width: 414px) {
+    width: 100vw;
+    padding: 0 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 const Header = styled.div`
@@ -42,6 +51,12 @@ const Title = styled.h1`
   line-height: 1.1;
   font-weight: 700;
   color: white;
+  @media (max-width: 414px) {
+    font-size: 1.8rem;
+    margin: 0;
+    line-height: 1.15;
+    max-width: initial;
+  }
 `;
 
 const Metadata = styled.div`
@@ -53,7 +68,9 @@ const Metadata = styled.div`
 
 const Sign = styled.p`
   color: #868e96;
-
+  @media (max-width: 414px) {
+    font-size: 0.9rem;
+  }
   a {
     font-weight: bold;
     color: #b3b9c5;
@@ -100,6 +117,10 @@ const Description = styled.h3`
   color: #868e96;
   font-weight: 300;
   margin-top: 2rem;
+
+  @media (max-width: 414px) {
+    font-size: 1.4rem;
+  }
 `;
 
 const PostDetail = ({ post }: { post: Post }) => {

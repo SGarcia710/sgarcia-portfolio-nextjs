@@ -16,13 +16,14 @@ const PostDetailRow = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 6px;
-  font-size: 12px;
 `;
 const PostDate = styled.p`
   color: #ccc6c6;
+  font-size: 12px;
 `;
 const PostCategory = styled.p`
   text-transform: capitalize;
+  font-size: 12px;
 `;
 const PostImage = styled(motion.img)`
   width: 100%;

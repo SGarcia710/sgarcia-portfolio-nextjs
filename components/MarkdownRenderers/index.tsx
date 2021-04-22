@@ -10,7 +10,7 @@ import gfm from 'remark-gfm';
 // https://github.com/react-syntax-highlighter/react-syntax-highlighter/issues/230
 
 import Code from './Code';
-import { A, CODE, H2, H3, H4, IMG, P, TABLE, UL } from './HTMLTags';
+import { A, BLOCKQUOTE, CODE, H2, H3, H4, IMG, P, TABLE, UL } from './HTMLTags';
 
 const components = {
   code: ({ node, className, ...props }) => {
@@ -38,6 +38,7 @@ const components = {
   ul: UL,
   img: IMG,
   table: TABLE,
+  blockquote: BLOCKQUOTE,
 };
 
 const MarkdownRenderer = (props: { content: string }) => {
