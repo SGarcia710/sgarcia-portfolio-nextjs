@@ -11,7 +11,6 @@ import gfm from 'remark-gfm';
 
 import Code from './Code';
 import { A, CODE, H2, H3, H4, IMG, P, TABLE, UL } from './HTMLTags';
-import Table from './Table';
 
 const components = {
   code: ({ node, className, ...props }) => {
