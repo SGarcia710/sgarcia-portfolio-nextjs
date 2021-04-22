@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { COLORS, FONTS, LINKS } from '../constants';
 import Link from 'next/link';
@@ -59,7 +59,7 @@ const NavBar = styled.nav`
 `;
 
 const Header = () => {
-  const [isMenuOpen, toggleOpen] = useCycle(false, true);
+  const [isMenuOpen, setIsOpen] = useState(false);
   return (
     <Container animate={isMenuOpen ? 'open' : 'closed'}>
       <Link href="/">
@@ -76,8 +76,8 @@ const Header = () => {
         )}
       </NavBar>
 
-      <MenuButton toggleOpen={toggleOpen} />
-      <MobileNavigation toggleMenu={toggleOpen} isMenuOpen={isMenuOpen} />
+      <MenuButton toggleOpen={() => setIsOpen(!isMenuOpen)} />
+      <MobileNavigation toggleMenu={setIsOpen} isMenuOpen={isMenuOpen} />
     </Container>
   );
 };

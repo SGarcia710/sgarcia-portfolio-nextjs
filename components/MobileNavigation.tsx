@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { LINKS } from '../constants';
+import { useRouter } from 'next/router';
 
 const NavigationOverlay = styled.div`
   height: 100vh;
@@ -12,6 +13,7 @@ const NavigationOverlay = styled.div`
   left: 0;
   right: 0;
   width: 100%;
+  z-index: 40;
 `;
 
 const Links = styled.div`
@@ -35,17 +37,24 @@ const Links = styled.div`
 
 interface MobileNavigationProps {
   isMenuOpen: boolean;
-  toggleMenu: () => void;
+  toggleMenu: (newState: boolean) => void;
 }
 
 const MobileNavigation = ({
   isMenuOpen,
   toggleMenu,
 }: MobileNavigationProps) => {
+  const router = useRouter();
+  useEffect(() => {
+    if (isMenuOpen) {
+      toggleMenu(false);
+    }
+  }, [router.pathname]);
+
   return (
     <AnimatePresence>
       {isMenuOpen && (
-        <NavigationOverlay onClick={toggleMenu}>
+        <NavigationOverlay onClick={() => toggleMenu(!isMenuOpen)}>
           <motion.div
             initial={{ y: -420 }}
             animate={{

@@ -5,12 +5,17 @@ import { motion } from 'framer-motion';
 import { COLORS, FONTS, IMAGE_FORMATS } from '../constants';
 import Link from 'next/link';
 import { getResizedURL } from '../utils';
+import ClampLines from 'react-clamp-lines';
 
 const Post = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 320px;
   color: white;
+
+  @media (max-width: 812px) {
+    width: 100%;
+  }
 `;
 const PostDetailRow = styled.div`
   display: flex;
@@ -20,10 +25,12 @@ const PostDetailRow = styled.div`
 const PostDate = styled.p`
   color: #ccc6c6;
   font-size: 12px;
+  margin-bottom: 0;
 `;
 const PostCategory = styled.p`
   text-transform: capitalize;
   font-size: 12px;
+  margin-bottom: 0;
 `;
 const PostImage = styled(motion.img)`
   width: 100%;
@@ -37,10 +44,13 @@ const PostTitle = styled.h4`
   line-height: 1.1;
   margin-bottom: 12px;
 `;
-const PostDescription = styled.p`
+const PostDescription = styled(ClampLines)`
   margin-bottom: 12px;
   font-size: 14px;
   line-height: 1.2;
+  p {
+    margin-bottom: 0;
+  }
 `;
 const GoToPostButton = styled.a`
   color: ${COLORS.headingColor};
@@ -66,7 +76,14 @@ const PostCard = ({ post }: { post: Post }) => {
       </PostDetailRow>
       <PostImage src={getImageURL} alt={title} />
       <PostTitle>{title}</PostTitle>
-      <PostDescription>{description}</PostDescription>
+      <PostDescription
+        text={description}
+        id={id}
+        lines={3}
+        ellipsis="..."
+        buttons={false}
+        innerElement="p"
+      />
       <Link href={`/blog/${slug}`}>
         <GoToPostButton>Leer más</GoToPostButton>
       </Link>

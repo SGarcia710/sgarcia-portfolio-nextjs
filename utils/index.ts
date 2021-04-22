@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { window } from 'browser-monads';
 
 // @ts-ignore
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -68,11 +69,6 @@ const getResizedURL = (url: string, options: GetResizedURLProps): string => {
   return newUrl;
 };
 
-const isMobile = () => {
-  const ua = navigator.userAgent;
-  return /Android|Mobi/i.test(ua);
-};
-
 const readingTime = ({
   text,
   wordCount = 0,
@@ -102,5 +98,6 @@ const readingTime = ({
 
   return readTime === 1 ? `${readTime} ${singular}` : `${readTime} ${plural}`;
 };
+const isMobile = window.innerWidth <= 818 ? true : false;
 
 export { fetcher, changeExtension, getResizedURL, readingTime, isMobile };

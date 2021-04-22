@@ -28,6 +28,7 @@ const Text = styled.p<{ marginLeft?: boolean; marginRight?: boolean }>`
   margin-right: ${(props) => (!!props.marginRight ? 4 : 0)}px;
   margin-left: ${(props) => (!!props.marginLeft ? 4 : 0)}px;
   font-size: 14px;
+  margin-bottom: 0;
 `;
 
 const Pagination = (props: PaginationProps) => {
