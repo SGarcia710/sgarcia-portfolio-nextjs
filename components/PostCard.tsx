@@ -62,7 +62,7 @@ const PostCard = ({ post }: { post: Post }) => {
         <PostDate>{DateTime.fromISO(createdAt).toLocaleString()}</PostDate>
         <PostCategory>{type}</PostCategory>
       </PostDetailRow>
-      <PostImage layoutId={id} src={getImageURL} alt={title} />
+      <PostImage src={getImageURL} alt={title} />
       <PostTitle>{title}</PostTitle>
       <PostDescription>{description}</PostDescription>
       <Link href={`/blog/${slug}`}>

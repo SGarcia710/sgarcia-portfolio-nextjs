@@ -6,6 +6,10 @@ import MarkdownRenderer from '../../components/MarkdownRenderers';
 import { DateTime } from 'luxon';
 import { COLORS, IMAGE_FORMATS } from '../../constants';
 import { getResizedURL } from '../../utils';
+import {
+  YTransition,
+  YTRANSITION_CONFIG,
+} from '../../components/AnimationsWrappers/YTransition';
 
 const Container = styled.div`
   width: 100%;
@@ -111,32 +115,34 @@ const PostDetail = ({ post }: { post: Post }) => {
   );
 
   return (
-    <Container>
-      <Image layoutId={post.id} src={getImageURL()} />
-      <Body>
-        <Header>
-          <Title>{post.title}</Title>
+    <YTransition {...YTRANSITION_CONFIG(0.2)}>
+      <Container>
+        <Image src={getImageURL()} />
+        <Body>
+          <Header>
+            <Title>{post.title}</Title>
 
-          <Metadata>
-            <Sign>
-              Por <a href="">Sebastián García</a> en{' '}
-              <span>
-                {DateTime.fromISO(post.createdAt)
-                  .setLocale('es')
-                  .toFormat('LLLL dd, yyyy')
-                  .toString()}
-              </span>
-            </Sign>
-            <Tags>
-              <Tag>{post.type}</Tag>
-            </Tags>
-          </Metadata>
-          <Description>{post.description}</Description>
-        </Header>
+            <Metadata>
+              <Sign>
+                Por <a href="">Sebastián García</a> en{' '}
+                <span>
+                  {DateTime.fromISO(post.createdAt)
+                    .setLocale('es')
+                    .toFormat('LLLL dd, yyyy')
+                    .toString()}
+                </span>
+              </Sign>
+              <Tags>
+                <Tag>{post.type}</Tag>
+              </Tags>
+            </Metadata>
+            <Description>{post.description}</Description>
+          </Header>
 
-        <MarkdownRenderer content={post.body} />
-      </Body>
-    </Container>
+          <MarkdownRenderer content={post.body} />
+        </Body>
+      </Container>
+    </YTransition>
   );
 };
 

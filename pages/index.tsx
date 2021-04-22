@@ -1,7 +1,10 @@
 import OpacityButton from '../components/OpacityButton';
 import styled from 'styled-components';
-import { HTMLMotionProps, motion } from 'framer-motion';
 import { COLORS } from '../constants';
+import {
+  YTransition,
+  YTRANSITION_CONFIG,
+} from '../components/AnimationsWrappers/YTransition';
 
 const Container = styled.div`
   flex: 1;
@@ -61,28 +64,6 @@ const Description = styled.p`
   strong {
   }
 `;
-
-const YTRANSITION_CONFIG: (delay: number) => HTMLMotionProps<'div'> = (
-  delay
-) => ({
-  initial: 'hidden',
-  animate: 'visible',
-  variants: {
-    hidden: {
-      opacity: 0,
-      y: 15,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay,
-      },
-    },
-  },
-});
-
-const YTransition = styled(motion.div)``;
 
 export default function Home() {
   return (

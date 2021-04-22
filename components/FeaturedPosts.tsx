@@ -58,7 +58,7 @@ const FeaturedPosts = (props: { posts: Post[] }) => {
         props.posts.map(({ id, featuredImage, title, slug }) => (
           <Link href={`/blog/${slug}`}>
             <FeaturedPost>
-              <Image layoutId={id} src={featuredImage} alt={title} />
+              <Image src={featuredImage} alt={title} />
               <InfoContainer>
                 <Title>{title}</Title>
               </InfoContainer>

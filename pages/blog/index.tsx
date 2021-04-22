@@ -8,6 +8,10 @@ import Pagination from '../../components/Pagination';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import { fetcher } from '../../utils';
+import {
+  YTransition,
+  YTRANSITION_CONFIG,
+} from '../../components/AnimationsWrappers/YTransition';
 
 const Container = styled.div`
   width: 100%;
@@ -42,23 +46,25 @@ const Posts: NextPage<{ posts: Post[]; page: number; count: number }> = (
   const postsToRender = props.posts.slice(props.page === 1 ? 3 : 0);
 
   return (
-    <Container>
-      {props.page === 1 && <FeaturedPosts posts={props.posts.slice(0, 3)} />}
-      <PostsContainer>
-        {React.Children.toArray(
-          postsToRender.map((post) => <PostCard post={post} />)
-        )}
-      </PostsContainer>
+    <YTransition {...YTRANSITION_CONFIG(0.1)}>
+      <Container>
+        {props.page === 1 && <FeaturedPosts posts={props.posts.slice(0, 3)} />}
+        <PostsContainer>
+          {React.Children.toArray(
+            postsToRender.map((post) => <PostCard post={post} />)
+          )}
+        </PostsContainer>
 
-      <Pagination
-        totalItems={props.count}
-        page={props.page}
-        onNext={onNextPage}
-        onPrev={onPrevPage}
-        itemsCount={props.posts.length}
-        itemsPerPage={ITEMS_PER_PAGE}
-      />
-    </Container>
+        <Pagination
+          totalItems={props.count}
+          page={props.page}
+          onNext={onNextPage}
+          onPrev={onPrevPage}
+          itemsCount={props.posts.length}
+          itemsPerPage={ITEMS_PER_PAGE}
+        />
+      </Container>
+    </YTransition>
   );
 };
 
