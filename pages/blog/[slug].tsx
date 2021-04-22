@@ -24,14 +24,14 @@ const Image = styled(motion.img)`
   width: 100%;
   height: 400px;
   object-fit: cover;
-  @media (max-width: 414px) {
+  @media (max-width: 425px) {
     height: 200px;
   }
 `;
 
 const Body = styled.article`
   max-width: 1000px;
-  @media (max-width: 414px) {
+  @media (max-width: 425px) {
     width: 100vw;
     padding: 0 1.5rem;
     margin-left: auto;
@@ -51,7 +51,7 @@ const Title = styled.h1`
   line-height: 1.1;
   font-weight: 700;
   color: white;
-  @media (max-width: 414px) {
+  @media (max-width: 425px) {
     font-size: 1.8rem;
     margin: 0;
     line-height: 1.15;
@@ -68,7 +68,7 @@ const Metadata = styled.div`
 
 const Sign = styled.p`
   color: #868e96;
-  @media (max-width: 414px) {
+  @media (max-width: 425px) {
     font-size: 0.9rem;
   }
   a {
@@ -118,7 +118,7 @@ const Description = styled.h3`
   font-weight: 300;
   margin-top: 2rem;
 
-  @media (max-width: 414px) {
+  @media (max-width: 425px) {
     font-size: 1.4rem;
   }
 `;

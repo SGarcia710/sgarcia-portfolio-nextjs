@@ -16,7 +16,7 @@ export const H4 = styled.h4`
   &:not(:first-child) {
     margin-top: 3rem;
   }
-  @media (max-width: 414px) {
+  @media (max-width: 425px) {
     font-size: 1.3rem;
     font-weight: 500;
   }
@@ -37,7 +37,7 @@ export const H2 = styled.h2`
   &:not(:first-child) {
     margin-top: 3rem;
   }
-  @media (max-width: 414px) {
+  @media (max-width: 425px) {
     font-size: 1.6rem;
   }
 `;
@@ -57,7 +57,7 @@ export const H3 = styled.h3`
     margin-top: 3rem;
   }
 
-  @media (max-width: 414px) {
+  @media (max-width: 425px) {
     font-size: 1.5rem;
   }
 `;
@@ -154,7 +154,7 @@ export const TABLE = styled.table`
     hyphens: auto;
   }
 
-  @media (max-width: 414px) {
+  @media (max-width: 425px) {
     font-size: 1.05rem;
     tbody,
     thead {

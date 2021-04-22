@@ -77,10 +77,23 @@ const NETWORKS = [
   },
 ];
 
-const IMAGES = [
-  '/images/onepiece.jpg',
-  '/images/fullmetal.png',
-  '/images/badbunny.jpg',
-];
+const LINKS = {
+  blog: {
+    url: '/blog',
+    title: 'Blog',
+  },
+  about: {
+    url: '/',
+    title: 'About',
+  },
+  portfolio: {
+    url: '/',
+    title: 'Portfolio',
+  },
+  contact: {
+    url: '/',
+    title: 'Contact',
+  },
+};
 
-export { FONTS, NETWORKS, IMAGES, COLORS, IMAGE_FORMATS };
+export { FONTS, NETWORKS, COLORS, IMAGE_FORMATS, LINKS };

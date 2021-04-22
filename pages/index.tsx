@@ -24,6 +24,7 @@ const Avatar = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 34px;
+  margin-top: 60px;
   img {
     width: 100%;
     height: 100%;
@@ -41,7 +42,7 @@ const Headline = styled.h1`
   line-height: 1.11;
   margin-bottom: 48px;
 
-  @media (max-width: 414px) {
+  @media (max-width: 425px) {
     font-size: 30px;
   }
   span {
@@ -58,7 +59,7 @@ const Description = styled.p`
   line-height: 1.4;
   font-size: 20px;
 
-  @media (max-width: 414px) {
+  @media (max-width: 425px) {
     font-size: 18px;
   }
   strong {

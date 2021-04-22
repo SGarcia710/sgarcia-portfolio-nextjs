@@ -32,7 +32,7 @@ const GlobalStyles = createGlobalStyle`
   blockquote {
     font-size: 1.3rem;
 
-    @media (max-width: 414px) {
+    @media (max-width: 425px) {
       font-size: 1.05rem;
       margin: 0 0 1.5rem 0;
     }

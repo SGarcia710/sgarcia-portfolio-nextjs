@@ -1,17 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import { COLORS, FONTS } from '../constants';
+import { COLORS, FONTS, LINKS } from '../constants';
 import Link from 'next/link';
+import { motion, useCycle } from 'framer-motion';
+import MenuButton from './MenuButton';
+import MobileNavigation from './MobileNavigation';
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 100%;
-  height: 100px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  padding: 30px 40px;
+  position: relative;
+
+  @media (max-width: 425px) {
+    padding: 22px 4%;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -20,6 +25,10 @@ const LogoContainer = styled.div`
     cursor: pointer;
     font-size: 1.5rem;
     color: white;
+    margin-bottom: 0;
+    @media (max-width: 425px) {
+      font-size: 1.2rem;
+    }
   }
 `;
 
@@ -44,26 +53,31 @@ const NavBar = styled.nav`
     }
   }
 
-  @media (max-width: 414px) {
+  @media (max-width: 813px) {
     display: none;
   }
 `;
 
 const Header = () => {
+  const [isMenuOpen, toggleOpen] = useCycle(false, true);
   return (
-    <Container>
+    <Container animate={isMenuOpen ? 'open' : 'closed'}>
       <Link href="/">
         <LogoContainer>
-          <p>🍕 sebastián garcía</p>
+          <p>sebastián garcía</p>
         </LogoContainer>
       </Link>
 
       <NavBar>
-        <Link href="/blog">Blog</Link>
-        <Link href="#">About</Link>
-        <Link href="#">Projects</Link>
-        <Link href="#">Contact</Link>
+        {React.Children.toArray(
+          Object.values(LINKS).map((link) => (
+            <Link href={link.url}>{link.title}</Link>
+          ))
+        )}
       </NavBar>
+
+      <MenuButton toggleOpen={toggleOpen} />
+      <MobileNavigation toggleMenu={toggleOpen} isMenuOpen={isMenuOpen} />
     </Container>
   );
 };

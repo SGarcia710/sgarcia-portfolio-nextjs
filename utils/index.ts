@@ -3,12 +3,12 @@ import _ from 'lodash';
 // @ts-ignore
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-function changeExtension(url: string | undefined, extension: string) {
+const changeExtension = (url: string | undefined, extension: string) => {
   const extension_index = url?.lastIndexOf('.');
   url = url?.substring(0, extension_index);
   url += `.${extension}`;
   return url;
-}
+};
 
 type GetResizedURLProps = {
   to?: string;
@@ -22,7 +22,7 @@ type GetResizedURLProps = {
   scale?: boolean;
 };
 
-function getResizedURL(url: string, options: GetResizedURLProps): string {
+const getResizedURL = (url: string, options: GetResizedURLProps): string => {
   if (options.to) {
     url = changeExtension(url, options.to)!;
   }
@@ -66,6 +66,36 @@ function getResizedURL(url: string, options: GetResizedURLProps): string {
     .join('/');
 
   return newUrl;
-}
+};
 
-export { fetcher, changeExtension, getResizedURL };
+const readingTime = ({
+  text,
+  wordCount = 0,
+  lang = 'en',
+}: {
+  text?: string;
+  wordCount?: number;
+  lang?: 'es' | 'en';
+}): string => {
+  const wordsPerMinute = 200;
+  const noOfWords = text ? text.split(/\s/g).length : wordCount;
+  const minutes = noOfWords / wordsPerMinute;
+  const readTime = Math.ceil(minutes);
+  let singular;
+  let plural;
+
+  switch (lang) {
+    case 'es':
+      singular = 'minuto de lectura';
+      plural = 'minutos de lectura';
+      break;
+    default:
+      singular = 'min read';
+      plural = 'min read';
+      break;
+  }
+
+  return readTime === 1 ? `${readTime} ${singular}` : `${readTime} ${plural}`;
+};
+
+export { fetcher, changeExtension, getResizedURL, readingTime };
