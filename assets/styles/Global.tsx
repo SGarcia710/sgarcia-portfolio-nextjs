@@ -8,6 +8,9 @@ const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
   }
+  html, body, a {
+    cursor: none;
+  }
   body {
     
     font-family: 'Plus Jakarta Sans Regular', 'Helvetica Neue', 'Helvetica',

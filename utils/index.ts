@@ -68,6 +68,11 @@ const getResizedURL = (url: string, options: GetResizedURLProps): string => {
   return newUrl;
 };
 
+const isMobile = () => {
+  const ua = navigator.userAgent;
+  return /Android|Mobi/i.test(ua);
+};
+
 const readingTime = ({
   text,
   wordCount = 0,
@@ -98,4 +103,4 @@ const readingTime = ({
   return readTime === 1 ? `${readTime} ${singular}` : `${readTime} ${plural}`;
 };
 
-export { fetcher, changeExtension, getResizedURL, readingTime };
+export { fetcher, changeExtension, getResizedURL, readingTime, isMobile };

@@ -42,10 +42,10 @@ const PostDescription = styled.p`
   font-size: 14px;
   line-height: 1.2;
 `;
-const GoToPostButton = styled.p`
+const GoToPostButton = styled.a`
   color: ${COLORS.headingColor};
   font-size: 14px;
-  cursor: pointer;
+  /* cursor: pointer; */
 `;
 
 const PostCard = ({ post }: { post: Post }) => {

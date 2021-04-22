@@ -11,11 +11,11 @@ const Container = styled.div`
   margin-bottom: 30px;
 `;
 
-const FeaturedPost = styled.div`
+const FeaturedPost = styled.a`
   height: 100%;
   width: calc(100% / 3);
   position: relative;
-  cursor: pointer;
+  /* cursor: pointer; */
   display: flex;
   align-items: flex-end;
   transition: 0.2s;

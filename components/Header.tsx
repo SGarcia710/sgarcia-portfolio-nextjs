@@ -20,9 +20,9 @@ const Container = styled(motion.div)`
 `;
 
 const LogoContainer = styled.div`
-  p {
+  a {
     font-family: ${FONTS.plusJakarta.bold};
-    cursor: pointer;
+    /* cursor: pointer; */
     font-size: 1.5rem;
     color: white;
     margin-bottom: 0;
@@ -64,7 +64,7 @@ const Header = () => {
     <Container animate={isMenuOpen ? 'open' : 'closed'}>
       <Link href="/">
         <LogoContainer>
-          <p>sebastián garcía</p>
+          <a>sebastián garcía</a>
         </LogoContainer>
       </Link>
 

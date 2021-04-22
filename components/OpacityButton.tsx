@@ -5,7 +5,7 @@ const Container = styled.div`
   background-color: white;
   padding: 24px 52px;
   border-radius: 50px;
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: 650ms;
   border: 1px solid white;
   p {

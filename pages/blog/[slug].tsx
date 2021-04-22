@@ -95,7 +95,7 @@ const Tag = styled.a`
   padding: 0.5rem 0.6rem;
   margin: 0.2rem;
   border-bottom: 0;
-  cursor: pointer;
+  /* cursor: pointer; */
   font-weight: 500;
   color: #b3b9c5;
   font-size: 0.9rem;
