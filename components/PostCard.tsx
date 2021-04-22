@@ -46,9 +46,9 @@ const PostTitle = styled.h4`
 `;
 const PostDescription = styled(ClampLines)`
   margin-bottom: 12px;
-  font-size: 14px;
   line-height: 1.2;
   p {
+    font-size: 14px;
     margin-bottom: 0;
   }
 `;
