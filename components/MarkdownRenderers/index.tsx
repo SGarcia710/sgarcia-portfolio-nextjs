@@ -10,10 +10,10 @@ import gfm from 'remark-gfm';
 // https://github.com/react-syntax-highlighter/react-syntax-highlighter/issues/230
 
 import Code from './Code';
+import { A, CODE, H2, H3, H4, IMG, P, TABLE, UL } from './HTMLTags';
 import Table from './Table';
 
 const components = {
-  table: Table,
   code: ({ node, className, ...props }) => {
     const match = /language-(\w+)/.exec(className || '');
     return match ? (
@@ -23,11 +23,22 @@ const components = {
       //   style={dracula}
       //   {...props}
       // />
-      <Code codeString={props.children.shift()} language={match[1]} />
+      <Code
+        codeString={props.children.shift().slice(0, -1)}
+        language={match[1]}
+      />
     ) : (
-      <code className={className} {...props} />
+      <CODE className={className} {...props} />
     );
   },
+  p: P,
+  h2: H2,
+  h3: H3,
+  h4: H4,
+  a: A,
+  ul: UL,
+  img: IMG,
+  table: TABLE,
 };
 
 const MarkdownRenderer = (props: { content: string }) => {

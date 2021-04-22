@@ -1,27 +1,35 @@
 import { createGlobalStyle } from 'styled-components';
+import { COLORS } from '../../constants';
 
 const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
+  }
+  a {
     text-decoration: none;
   }
   body {
-    background: #f4f7f6;
+    /* background: #f4f7f6; */
     font-family: 'Plus Jakarta Sans Regular', 'Helvetica Neue', 'Helvetica',
     'Arial', sans-serif;
     text-rendering: optimizeLegibility;
 
     overflow-x: hidden;
+    color: ${COLORS.fontColor};
+    line-height: 1.75;
     
     // Dark mode configuration provided by styled-components
-    @media (prefers-color-scheme: dark) {
+    /* @media (prefers-color-scheme: dark) {
       background: #f4f7f6;
-    }
+    } */
   }
 
   .snippet-highlight {
     position: relative;
     -webkit-overflow-scrolling: touch;
+    margin: .6rem 0rem 2rem;
+    font-size: 1rem;
+    box-shadow: 0 0 1px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 6%), 0 2px 2px rgb(0 0 0 / 6%), 0 4px 4px rgb(0 0 0 / 6%), 0 8px 8px rgb(0 0 0 / 6%), 0 16px 16px rgb(0 0 0 / 6%);
   }
   .snippet-highlight pre[class*="language-"] {
     -webkit-overflow-scrolling: touch;
@@ -29,7 +37,6 @@ const GlobalStyles = createGlobalStyle`
     border-radius: 0.25rem;
   }
   .snippet-highlight pre[class*="language-"]::before {
-    background: black;
     border-radius: 0 0 0.25rem 0.25rem;
     color: white;
     font-size: 12px;

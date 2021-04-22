@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { FONTS } from '../constants';
+import { COLORS, FONTS } from '../constants';
 import Link from 'next/link';
 
 const Container = styled.div`
@@ -10,16 +10,16 @@ const Container = styled.div`
 
   display: flex;
   justify-content: space-between;
-  color: white;
   align-items: center;
   padding: 0 40px;
 `;
 
 const LogoContainer = styled.div`
   p {
-    font-size: 18px;
     font-family: ${FONTS.plusJakarta.bold};
     cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
   }
 `;
 
@@ -30,11 +30,16 @@ const NavBar = styled.nav`
   width: 50%;
   height: 100%;
   a {
-    color: white;
     font-size: 14px;
     margin: 0 18px;
+    color: ${COLORS.transparentText};
+    padding: 1rem 1.25rem;
+    font-size: 1.3rem;
+    font-weight: 400;
+    border-radius: 0.35rem;
     &:hover {
-      text-decoration: underline;
+      background-color: ${COLORS.lightBackground};
+      color: white;
     }
   }
 
@@ -48,7 +53,7 @@ const Header = () => {
     <Container>
       <Link href="/">
         <LogoContainer>
-          <p>sebastián garcía</p>
+          <p>🍕 sebastián garcía</p>
         </LogoContainer>
       </Link>
 

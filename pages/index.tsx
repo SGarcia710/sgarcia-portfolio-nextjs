@@ -1,6 +1,7 @@
 import OpacityButton from '../components/OpacityButton';
 import styled from 'styled-components';
 import { HTMLMotionProps, motion } from 'framer-motion';
+import { COLORS } from '../constants';
 
 const Container = styled.div`
   flex: 1;
@@ -14,7 +15,7 @@ const Container = styled.div`
 const Avatar = styled.div`
   width: 170px;
   height: 170px;
-  background-color: #e7b996;
+  background-color: ${COLORS.headingColor};
   border-radius: calc(170px / 2);
   display: flex;
   justify-content: center;
@@ -34,7 +35,7 @@ const Greeting = styled.h3`
 const Headline = styled.h1`
   font-size: 60px;
   text-align: center;
-
+  line-height: 1.11;
   margin-bottom: 48px;
 
   @media (max-width: 414px) {

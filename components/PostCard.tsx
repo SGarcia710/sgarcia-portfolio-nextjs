@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { DateTime } from 'luxon';
 import { motion } from 'framer-motion';
-import { FONTS } from '../constants';
+import { COLORS, FONTS, IMAGE_FORMATS } from '../constants';
 import Link from 'next/link';
+import { getResizedURL } from '../utils';
 
 const Post = styled.div`
   display: flex;
@@ -26,6 +27,8 @@ const PostCategory = styled.p`
 const PostImage = styled(motion.img)`
   width: 100%;
   margin-bottom: 12px;
+  height: 170px;
+  object-fit: cover;
 `;
 const PostTitle = styled.div`
   font-family: ${FONTS.plusJakarta.bold};
@@ -38,20 +41,28 @@ const PostDescription = styled.p`
   line-height: 1.2;
 `;
 const GoToPostButton = styled.p`
-  color: #e7b996;
+  color: ${COLORS.headingColor};
   font-size: 14px;
   cursor: pointer;
 `;
 
 const PostCard = ({ post }: { post: Post }) => {
   const { createdAt, title, featuredImage, id, type, description, slug } = post;
+
+  const getImageURL = getResizedURL(featuredImage, {
+    scale: true,
+    quality: 'auto',
+    width: 300,
+    to: IMAGE_FORMATS.webp,
+  });
+
   return (
     <Post>
       <PostDetailRow>
         <PostDate>{DateTime.fromISO(createdAt).toLocaleString()}</PostDate>
         <PostCategory>{type}</PostCategory>
       </PostDetailRow>
-      <PostImage layoutId={id} src={featuredImage} alt={title} />
+      <PostImage layoutId={id} src={getImageURL} alt={title} />
       <PostTitle>{title}</PostTitle>
       <PostDescription>{description}</PostDescription>
       <Link href={`/blog/${slug}`}>
