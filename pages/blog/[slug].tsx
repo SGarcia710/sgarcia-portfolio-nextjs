@@ -5,7 +5,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import MarkdownRenderer from '../../components/MarkdownRenderers';
 import { DateTime } from 'luxon';
 import { COLORS, IMAGE_FORMATS } from '../../constants';
-import { getResizedURL } from '../../utils';
+import { getResizedURL, readingTime } from '../../utils';
 import {
   YTransition,
   YTRANSITION_CONFIG,
@@ -63,17 +63,17 @@ const Metadata = styled.div`
   padding: 1rem 0;
   margin: 1rem 0;
   font-size: 1rem;
-  border-bottom: 3px solid #3b3b3b;
+  border-bottom: 3px solid ${COLORS.borderColor};
 `;
 
 const Sign = styled.p`
-  color: #868e96;
+  color: ${COLORS.lightFontColor};
   @media (max-width: 425px) {
     font-size: 0.9rem;
   }
   a {
     font-weight: bold;
-    color: #b3b9c5;
+    color: ${COLORS.fontColor};
   }
   span {
     text-transform: capitalize;
@@ -90,21 +90,21 @@ const Tag = styled.a`
   &:last-child {
     margin-right: 0;
   }
-  background: #2d2d31;
+  background: ${COLORS.lightBackground};
   border-radius: 0.35rem;
   padding: 0.5rem 0.6rem;
   margin: 0.2rem;
   border-bottom: 0;
   /* cursor: pointer; */
   font-weight: 500;
-  color: #b3b9c5;
+  color: ${COLORS.fontColor};
   font-size: 0.9rem;
   white-space: nowrap;
   line-height: 1;
   transition: 0.2s;
 
   &:hover {
-    background: #3b3b3e;
+    background: ${COLORS.lightBackground};
     color: ${COLORS.headingColor};
   }
 `;
@@ -114,12 +114,25 @@ const Description = styled.h3`
   line-height: 1.5;
   max-width: 700px;
 
-  color: #868e96;
+  color: ${COLORS.lightFontColor};
   font-weight: 300;
   margin-top: 2rem;
 
   @media (max-width: 425px) {
     font-size: 1.4rem;
+  }
+`;
+const ReadingTime = styled.p`
+  color: ${COLORS.lightFontColor};
+  @media (max-width: 425px) {
+    font-size: 0.9rem;
+  }
+  a {
+    font-weight: bold;
+    color: ${COLORS.fontColor};
+  }
+  span {
+    text-transform: capitalize;
   }
 `;
 
@@ -153,6 +166,12 @@ const PostDetail = ({ post }: { post: Post }) => {
                     .toString()}
                 </span>
               </Sign>
+              <ReadingTime>
+                {readingTime({
+                  text: post.body,
+                  lang: 'es',
+                })}
+              </ReadingTime>
               <Tags>
                 {React.Children.toArray(
                   post.categories.map((category) => <Tag>{category.title}</Tag>)
