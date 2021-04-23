@@ -2,10 +2,12 @@ import NextNprogress from 'nextjs-progressbar';
 
 import '@/assets/styles/Reset.css';
 import '@/assets/styles/Fonts.css';
+import '@/assets/styles/SnippetHighlight.css';
 
 import GlobalStyles from '@/assets/styles/Global';
 import Layout from '@/components/Layout';
 import { COLORS } from '@/constants';
+import ScrollToTop from '@/components/ScrollToTop';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -22,6 +24,8 @@ function MyApp({ Component, pageProps }) {
           }}
         />
         <Component {...pageProps} />
+
+        <ScrollToTop />
       </Layout>
     </>
   );

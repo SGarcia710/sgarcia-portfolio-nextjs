@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 const Layout = (props: { children: React.ReactNode }) => {
   return (
-    <Container>
+    <Container id="top">
       <Header />
       {props.children}
       <Footer />

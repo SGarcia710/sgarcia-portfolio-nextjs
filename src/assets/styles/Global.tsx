@@ -5,12 +5,22 @@ const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
   a {
     text-decoration: none;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
  
   body {
-    
     font-family: 'Plus Jakarta Sans Regular', 'Helvetica Neue', 'Helvetica',
     'Arial', sans-serif;
     text-rendering: optimizeLegibility;
@@ -37,53 +47,6 @@ const GlobalStyles = createGlobalStyle`
       font-size: 1.05rem;
       margin: 0 0 1.5rem 0;
     }
-  }
-
-  .snippet-highlight {
-    position: relative;
-    -webkit-overflow-scrolling: touch;
-    margin: .6rem 0rem 2rem;
-    font-size: 1rem;
-    box-shadow: 0 0 1px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 6%), 0 2px 2px rgb(0 0 0 / 6%), 0 4px 4px rgb(0 0 0 / 6%), 0 8px 8px rgb(0 0 0 / 6%), 0 16px 16px rgb(0 0 0 / 6%);
-  }
-  .snippet-highlight pre[class*="language-"] {
-    -webkit-overflow-scrolling: touch;
-    padding: 1rem 0.75rem;
-    border-radius: 0.25rem;
-  }
-  .snippet-highlight pre[class*="language-"]::before {
-    border-radius: 0 0 0.25rem 0.25rem;
-    color: white;
-    font-size: 12px;
-    letter-spacing: 0.025rem;
-    padding: 0.1rem 0.5rem;
-    position: absolute;
-    right: 1rem;
-    text-align: right;
-    text-transform: uppercase;
-    top: 0;
-  }
-  .snippet-highlight pre[class*="language-javascript"]::before {
-    content: "js";
-    background: #f7df1e;
-    color: black;
-  }
-  .snippet-highlight pre[class*="language-js"]::before {
-    content: "js";
-    background: #f7df1e;
-    color: black;
-  }
-
-  .snippet-highlight pre[class*="language-html"]::before {
-    content: "html";
-    background: #005a9c;
-    color: white;
-  }
-
-  .snippet-highlight pre[class*="language-css"]::before {
-    content: "css";
-    background: #ff9800;
-    color: white;
   }
 `;
 
