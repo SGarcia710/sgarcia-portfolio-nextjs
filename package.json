@@ -2,6 +2,14 @@
   "name": "sgarcia-portfolio",
   "version": "0.1.0",
   "private": true,
+  "description": "My personal website",
+  "author": "SGarcia710",
+  "license": "MIT",
+  "homepage": "https://sebastiangarcia.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SGarcia710/sgarcia-portfolio-nextjs.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
