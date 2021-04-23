@@ -34,7 +34,8 @@ const Text = styled.p<{ marginLeft?: boolean; marginRight?: boolean }>`
 const Pagination = (props: PaginationProps) => {
   const canGoBack = props.page !== 1;
   const canGoNext =
-    props.page * props.itemsPerPage - 9 + props.itemsCount < props.totalItems;
+    props.page * props.itemsPerPage - props.itemsPerPage + props.itemsCount <
+    props.totalItems;
   return (
     <Container>
       <Row

@@ -137,7 +137,7 @@ const PostDetail = ({ post }: { post: Post }) => {
       getResizedURL(post.featuredImage, {
         scale: true,
         quality: 'auto',
-        width: 1440,
+        width: 1280,
         to: IMAGE_FORMATS.webp,
       }),
     []

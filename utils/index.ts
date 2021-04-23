@@ -19,7 +19,7 @@ type GetResizedURLProps = {
   width?: number;
   fill?: boolean;
   height?: number;
-  quality?: 'auto';
+  quality?: 'auto' | number;
   scale?: boolean;
 };
 
