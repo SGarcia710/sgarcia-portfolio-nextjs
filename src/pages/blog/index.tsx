@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import FeaturedPosts from '../../components/FeaturedPosts';
-import PostCard from '../../components/PostCard';
+import FeaturedPosts from '@/components/FeaturedPosts';
+import PostCard from '@/components/PostCard';
 import { GetServerSideProps, NextPage } from 'next';
-import Pagination from '../../components/Pagination';
+import Pagination from '@/components/Pagination';
 import { useRouter } from 'next/router';
 import {
   YTransition,
   YTRANSITION_CONFIG,
-} from '../../components/AnimationsWrappers/YTransition';
+} from '@/components/AnimationsWrappers/YTransition';
 
 const Container = styled(YTransition)`
   width: 100%;

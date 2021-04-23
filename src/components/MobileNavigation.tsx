@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import styled from 'styled-components';
 import Link from 'next/link';
-import { LINKS } from '../constants';
+import { LINKS } from '@/constants';
 import { useRouter } from 'next/router';
 
 const NavigationOverlay = styled.div`

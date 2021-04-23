@@ -1,10 +1,10 @@
-import OpacityButton from '../components/OpacityButton';
+import OpacityButton from '@/components/OpacityButton';
 import styled from 'styled-components';
-import { COLORS } from '../constants';
+import { COLORS } from '@/constants';
 import {
   YTransition,
   YTRANSITION_CONFIG,
-} from '../components/AnimationsWrappers/YTransition';
+} from '@/components/AnimationsWrappers/YTransition';
 
 const Container = styled.div`
   flex: 1;

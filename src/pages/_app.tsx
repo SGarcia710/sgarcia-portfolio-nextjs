@@ -1,11 +1,11 @@
 import NextNprogress from 'nextjs-progressbar';
 
-import '../assets/styles/Reset.css';
-import '../assets/styles/Fonts.css';
+import '@/assets/styles/Reset.css';
+import '@/assets/styles/Fonts.css';
 
-import GlobalStyles from '../assets/styles/Global';
-import Layout from '../components/Layout';
-import { COLORS } from '../constants';
+import GlobalStyles from '@/assets/styles/Global';
+import Layout from '@/components/Layout';
+import { COLORS } from '@/constants';
 
 function MyApp({ Component, pageProps }) {
   return (

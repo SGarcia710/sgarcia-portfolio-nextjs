@@ -2,14 +2,14 @@ import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import MarkdownRenderer from '../../components/MarkdownRenderers';
+import MarkdownRenderer from '@/components/MarkdownRenderers';
 import { DateTime } from 'luxon';
-import { COLORS, IMAGE_FORMATS } from '../../constants';
-import { getResizedURL, readingTime } from '../../utils';
+import { COLORS, IMAGE_FORMATS } from '@/constants';
+import { getResizedURL, readingTime } from '@/utils';
 import {
   YTransition,
   YTRANSITION_CONFIG,
-} from '../../components/AnimationsWrappers/YTransition';
+} from '@/components/AnimationsWrappers/YTransition';
 
 const Container = styled.div`
   width: 100vw;

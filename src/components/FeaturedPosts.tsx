@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 import { FONTS } from '@/constants';
-import { isMobile } from 'utils';
+import { isMobile } from '@/utils';
 
 const Container = styled.div`
   max-width: 1024px;

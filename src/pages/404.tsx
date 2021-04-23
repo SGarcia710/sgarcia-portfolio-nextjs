@@ -1,10 +1,8 @@
 import OpacityButton from '@/components/OpacityButton';
 import { COLORS, FONTS } from '@/constants';
-import { useGhostAnimation } from '@/hooks';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
-import Lottie from 'react-lottie';
 import styled from 'styled-components';
 const Container = styled.div`
   flex: 1;

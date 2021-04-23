@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { COLORS, FONTS, LINKS } from '../constants';
+import { COLORS, FONTS, LINKS } from '@/constants';
 import Link from 'next/link';
-import { motion, useCycle } from 'framer-motion';
+import { motion } from 'framer-motion';
 import MenuButton from './MenuButton';
 import MobileNavigation from './MobileNavigation';
 import Lottie from 'react-lottie';

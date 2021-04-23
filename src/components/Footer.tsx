@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { FONTS } from '../constants';
+import { FONTS } from '@/constants';
 import NETWORKS from '@/constants/networks';
 
 const Container = styled.div`

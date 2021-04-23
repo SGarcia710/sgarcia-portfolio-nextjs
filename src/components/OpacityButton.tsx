@@ -16,6 +16,7 @@ const Container = styled.div`
     line-height: 24px;
     letter-spacing: 0.03em;
     font-size: 14px;
+    font-family: ${FONTS.plusJakarta.medium};
   }
 
   &:hover {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS, FONTS } from '../../constants';
+import { COLORS, FONTS } from '@/constants';
 
 export const P = styled.p``;
 export const H4 = styled.h4`
