@@ -99,6 +99,14 @@ const readingTime = ({
   return readTime === 1 ? `${readTime} ${singular}` : `${readTime} ${plural}`;
 };
 
-const isMobile = window.innerWidth <= 818 ? true : false;
+const isTablet = window.innerWidth <= 818 ? true : false;
+const isMobile = window.innerWidth <= 425 ? true : false;
 
-export { fetcher, changeExtension, getResizedURL, readingTime, isMobile };
+export {
+  fetcher,
+  changeExtension,
+  getResizedURL,
+  readingTime,
+  isTablet,
+  isMobile,
+};

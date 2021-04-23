@@ -18,8 +18,8 @@ const Container = styled(motion.div)`
   padding: 30px 40px;
   position: relative;
 
-  @media (max-width: 425px) {
-    padding: 22px 4%;
+  @media (max-width: 818px) {
+    padding: 22px 16px;
   }
 `;
 
@@ -46,7 +46,7 @@ const NavBar = styled.nav`
   width: 50%;
   height: 100%;
 
-  @media (max-width: 813px) {
+  @media (max-width: 818px) {
     display: none;
   }
 `;

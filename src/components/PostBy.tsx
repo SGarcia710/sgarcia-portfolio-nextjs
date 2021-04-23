@@ -24,10 +24,16 @@ const Author = styled.p`
   color: white;
   font-family: ${FONTS.plusJakarta.bold};
   letter-spacing: 0.3px;
+  @media (max-width: 425px) {
+    margin: 0;
+  }
 `;
 const Date = styled.p`
   font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.6);
+  @media (max-width: 425px) {
+    margin: 0;
+  }
 `;
 const PostBy = ({ date }: { date: Date }) => {
   const _avatar = getResizedURL(

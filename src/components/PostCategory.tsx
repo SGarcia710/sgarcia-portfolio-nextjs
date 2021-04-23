@@ -51,6 +51,26 @@ const COLORS = {
     backgroundColor: '#89CE18',
     color: '#EBEBEB',
   },
+  hardware: {
+    backgroundColor: '#6b6444',
+    color: '#EBEBEB',
+  },
+  software: {
+    backgroundColor: '#0c0aad',
+    color: '#EBEBEB',
+  },
+  jamstack: {
+    backgroundColor: '#ff0062',
+    color: '#ffffff',
+  },
+  'mobile-development': {
+    backgroundColor: '#fff',
+    color: '#6b6444',
+  },
+  'web-development': {
+    backgroundColor: '#19306e',
+    color: '#ffffff',
+  },
 };
 
 const getColors = (uid: string) => {
@@ -63,10 +83,18 @@ const Container = styled.p`
   width: fit-content;
   margin: 0;
   font-size: 0.7rem;
-  /* background-color: #ece8f9;
-  color: #9081b8; */
   font-family: ${FONTS.plusJakarta.bold};
   margin-bottom: 10px;
+
+  margin-right: 16px;
+  &:last-child {
+    margin-right: 0;
+  }
+  @media (max-width: 818px) {
+  }
+  @media (max-width: 425px) {
+    font-size: 0.6rem;
+  }
 `;
 const PostCategory = ({
   label,

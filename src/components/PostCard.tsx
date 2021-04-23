@@ -11,6 +11,30 @@ const Post = styled.div`
   display: flex;
   flex-direction: column;
   width: 309px;
+  &:nth-child(2),
+  &:nth-child(5) {
+    justify-self: center;
+  }
+  &:nth-child(3n) {
+    justify-self: end;
+  }
+
+  @media (max-width: 818px) {
+    width: 340px;
+    &:nth-child(odd) {
+      justify-self: start;
+    }
+    &:nth-child(even) {
+      justify-self: end;
+    }
+  }
+  @media (max-width: 425px) {
+    margin-bottom: 40px;
+    width: 100%;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 `;
 
 const Image = styled(motion.img)`
@@ -20,6 +44,17 @@ const Image = styled(motion.img)`
   object-fit: cover;
   margin-bottom: 12px;
   cursor: pointer;
+
+  @media (max-width: 818px) {
+    height: 340px;
+  }
+  @media (max-width: 425px) {
+    display: none;
+  }
+`;
+
+const Categories = styled.div`
+  display: flex;
 `;
 
 const Title = styled.h4`
@@ -30,7 +65,14 @@ const Title = styled.h4`
   color: white;
   margin-bottom: 5px;
   cursor: pointer;
+  @media (max-width: 818px) {
+  }
+  @media (max-width: 425px) {
+    max-width: 100%;
+    font-size: 1.1rem;
+  }
 `;
+
 const Description = styled.p`
   line-height: 2;
   letter-spacing: 0.2px;
@@ -42,6 +84,11 @@ const Description = styled.p`
   a {
     margin-top: 10px;
     color: rgba(255, 255, 255, 0.7);
+  }
+  @media (max-width: 818px) {
+  }
+  @media (max-width: 425px) {
+    max-width: 100%;
   }
 `;
 
@@ -74,7 +121,15 @@ const PostCard = ({ post }: { post: Post }) => {
       <Link href={`/blog/${slug}`}>
         <Image src={getImageURL} alt={title} />
       </Link>
-      <PostCategory uid={categories[0].uid} label={categories[0].title} />
+      <Categories>
+        {React.Children.toArray(
+          categories
+            .slice(0, 2)
+            .map((category) => (
+              <PostCategory uid={category.uid} label={category.title} />
+            ))
+        )}
+      </Categories>
       <Link href={`/blog/${slug}`}>
         <Title>{title}</Title>
       </Link>
