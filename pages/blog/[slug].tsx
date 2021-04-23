@@ -68,6 +68,7 @@ const Metadata = styled.div`
 
 const Sign = styled.p`
   color: ${COLORS.lightFontColor};
+  margin: 0;
   @media (max-width: 425px) {
     font-size: 0.9rem;
   }
@@ -77,6 +78,13 @@ const Sign = styled.p`
   }
   span {
     text-transform: capitalize;
+  }
+`;
+const ReadingTime = styled.p`
+  color: ${COLORS.lightFontColor};
+  margin: 0;
+  @media (max-width: 425px) {
+    font-size: 0.9rem;
   }
 `;
 const Tags = styled.div`
@@ -120,19 +128,6 @@ const Description = styled.h3`
 
   @media (max-width: 425px) {
     font-size: 1.4rem;
-  }
-`;
-const ReadingTime = styled.p`
-  color: ${COLORS.lightFontColor};
-  @media (max-width: 425px) {
-    font-size: 0.9rem;
-  }
-  a {
-    font-weight: bold;
-    color: ${COLORS.fontColor};
-  }
-  span {
-    text-transform: capitalize;
   }
 `;
 
