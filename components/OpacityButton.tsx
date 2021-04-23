@@ -1,9 +1,10 @@
+import { FONTS } from '@/constants';
 import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
   background-color: white;
-  padding: 24px 52px;
+  padding: 18px 38px;
   border-radius: 50px;
   cursor: pointer;
   transition: 650ms;
@@ -11,8 +12,10 @@ const Container = styled.div`
   p {
     color: #222323;
     white-space: nowrap;
-    text-transform: uppercase;
     margin: 0;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    font-size: 14px;
   }
 
   &:hover {

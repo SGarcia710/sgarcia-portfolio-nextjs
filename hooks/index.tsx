@@ -13,3 +13,16 @@ export const useLogoAnimation = () => {
 
   return animation;
 };
+export const useGhostAnimation = () => {
+  const [animation, setAnimation] = useState();
+  const loadAnimation = async () => {
+    const data = await import('../assets/lottie/ghost.json');
+    setAnimation(data as any);
+  };
+
+  useEffect(() => {
+    loadAnimation();
+  }, []);
+
+  return animation;
+};
