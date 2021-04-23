@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import { LINKS } from '@/constants';
 import { useRouter } from 'next/router';
+import SoonTag from './SoonTag';
 
 const NavigationOverlay = styled.div`
   height: 100vh;
@@ -24,11 +25,18 @@ const Links = styled.div`
   flex-direction: column;
   position: absolute;
   overflow: visible;
+`;
+
+const LinkContainer = styled.div`
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  width: 100%;
+
+  padding-bottom: 32px;
+  padding-top: 32px;
+  padding-left: 45px;
   a {
-    width: 100%;
-    padding-top: 32px;
-    padding-bottom: 32px;
-    padding-left: 45px;
     color: #222323;
     font-size: 14px;
     letter-spacing: 0.5px;
@@ -66,9 +74,20 @@ const MobileNavigation = ({
           >
             <Links>
               {React.Children.toArray(
-                Object.values(LINKS).map((link) => (
-                  <Link href={link.url}>{link.title}</Link>
-                ))
+                Object.values(LINKS).map((link) => {
+                  const isForSoon = [
+                    LINKS.about.url,
+                    LINKS.contact.url,
+                    LINKS.portfolio.url,
+                  ].includes(link.url);
+
+                  return (
+                    <LinkContainer>
+                      <Link href={link.url}>{link.title}</Link>
+                      {!!isForSoon && <SoonTag dark />}
+                    </LinkContainer>
+                  );
+                })
               )}
             </Links>
           </motion.div>

@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { COLORS, FONTS, LINKS } from '@/constants';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import MenuButton from './MenuButton';
-import MobileNavigation from './MobileNavigation';
 import Lottie from 'react-lottie';
+
+import MenuButton from './MenuButton';
+import { COLORS, FONTS, LINKS } from '@/constants';
+import MobileNavigation from './MobileNavigation';
+import { useLogoAnimation } from '@/hooks';
+import SoonTag from './SoonTag';
 
 const Container = styled(motion.div)`
   width: 100%;
@@ -42,30 +45,41 @@ const NavBar = styled.nav`
   justify-content: flex-end;
   width: 50%;
   height: 100%;
-  a {
-    font-size: 14px;
-    margin: 0 18px;
-    color: ${COLORS.transparentText};
-    padding: 1rem 1.25rem;
-    font-size: 1.3rem;
-    font-weight: 400;
-    border-radius: 0.35rem;
-    transition: 0.2s;
-    &:hover {
-      background-color: ${COLORS.lightBackground};
-      color: white;
-    }
-  }
 
   @media (max-width: 813px) {
     display: none;
   }
 `;
-import { useLogoAnimation } from '@/hooks';
+
+const LinkContainer = styled.div`
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 18px;
+
+  border-radius: 0.35rem;
+  transition: 0.2s;
+  padding: 1rem 1.25rem;
+
+  a {
+    color: ${COLORS.transparentText};
+    font-size: 14px;
+    font-weight: 400;
+  }
+  &:hover {
+    background-color: ${COLORS.lightBackground};
+    a {
+      color: white;
+    }
+  }
+`;
 
 const Header = () => {
   const [isMenuOpen, setIsOpen] = useState(false);
   const animation = useLogoAnimation();
+
   return (
     <Container animate={isMenuOpen ? 'open' : 'closed'}>
       <Link href="/">
@@ -83,9 +97,20 @@ const Header = () => {
 
       <NavBar>
         {React.Children.toArray(
-          Object.values(LINKS).map((link) => (
-            <Link href={link.url}>{link.title}</Link>
-          ))
+          Object.values(LINKS).map((link) => {
+            const isForSoon = [
+              LINKS.about.url,
+              LINKS.contact.url,
+              LINKS.portfolio.url,
+            ].includes(link.url);
+
+            return (
+              <LinkContainer>
+                <Link href={link.url}>{link.title}</Link>
+                {!!isForSoon && <SoonTag />}
+              </LinkContainer>
+            );
+          })
         )}
       </NavBar>
 
