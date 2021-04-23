@@ -123,7 +123,8 @@ const Posts: NextPage<{ posts: Post[]; page: number; count: number }> = (
         <Memoji alt="Search Memoji" src="/images/Memoji7.png" />
         <Title>Blog</Title>
         <Headline>
-          lee los tutoriales, reseñas e historias que he publicado
+          lee los tutoriales, reseñas, snippets, historias y todo lo demás que
+          he escrito
         </Headline>
         <SearchContainer>
           <SearchInput>
