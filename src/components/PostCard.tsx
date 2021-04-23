@@ -1,92 +1,88 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { DateTime } from 'luxon';
 import { motion } from 'framer-motion';
-import { COLORS, FONTS, IMAGE_FORMATS } from '../constants';
+import { FONTS, IMAGE_FORMATS } from '@/constants';
 import Link from 'next/link';
-import { getResizedURL } from '../utils';
-import ClampLines from 'react-clamp-lines';
+import { getResizedURL } from '@/utils';
+import PostCategory from './PostCategory';
+import PostBy from './PostBy';
 
 const Post = styled.div`
   display: flex;
   flex-direction: column;
-  width: 320px;
-  color: white;
+  width: 309px;
+`;
 
-  @media (max-width: 812px) {
-    width: 100%;
-  }
-`;
-const PostDetailRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 6px;
-`;
-const PostDate = styled.p`
-  color: #ccc6c6;
-  font-size: 12px;
-  margin-bottom: 0;
-`;
-const PostCategory = styled.p`
-  text-transform: capitalize;
-  font-size: 12px;
-  margin-bottom: 0;
-`;
-const PostImage = styled(motion.img)`
+const Image = styled(motion.img)`
   width: 100%;
-  margin-bottom: 12px;
-  height: 170px;
+  border-radius: 24px;
+  height: 309px;
   object-fit: cover;
-`;
-const PostTitle = styled.h4`
-  font-family: ${FONTS.plusJakarta.bold};
-  font-size: 28px;
-  line-height: 1.1;
   margin-bottom: 12px;
-`;
-const PostDescription = styled(ClampLines)`
-  margin-bottom: 12px;
-  line-height: 1.2;
-  p {
-    font-size: 14px;
-    margin-bottom: 0;
-  }
-`;
-const GoToPostButton = styled.a`
-  color: ${COLORS.headingColor};
-  font-size: 14px;
   cursor: pointer;
 `;
 
+const Title = styled.h4`
+  font-family: ${FONTS.plusJakarta.bold};
+  font-size: 1.3rem;
+  line-height: 1.4;
+  max-width: 98%;
+  color: white;
+  margin-bottom: 5px;
+  cursor: pointer;
+`;
+const Description = styled.p`
+  line-height: 2;
+  letter-spacing: 0.2px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  max-width: 90%;
+  color: rgba(255, 255, 255, 0.7);
+
+  a {
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+`;
+
 const PostCard = ({ post }: { post: Post }) => {
-  const { createdAt, title, featuredImage, id, type, description, slug } = post;
+  const {
+    createdAt,
+    title,
+    featuredImage,
+    id,
+    type,
+    description,
+    slug,
+    categories,
+  } = post;
 
   const getImageURL = getResizedURL(featuredImage, {
     scale: true,
-    quality: 'auto',
-    width: 300,
+    quality: 100,
+    width: 309,
     to: IMAGE_FORMATS.webp,
   });
 
+  const _description =
+    description.length > 72
+      ? description.slice(0, 72).concat('...  ')
+      : description;
+
   return (
     <Post>
-      <PostDetailRow>
-        <PostDate>{DateTime.fromISO(createdAt).toLocaleString()}</PostDate>
-        <PostCategory>{type}</PostCategory>
-      </PostDetailRow>
-      <PostImage src={getImageURL} alt={title} />
-      <PostTitle>{title}</PostTitle>
-      <PostDescription
-        text={description}
-        id={id}
-        lines={3}
-        ellipsis="..."
-        buttons={false}
-        innerElement="p"
-      />
       <Link href={`/blog/${slug}`}>
-        <GoToPostButton>Leer más</GoToPostButton>
+        <Image src={getImageURL} alt={title} />
       </Link>
+      <PostCategory uid={categories[0].uid} label={categories[0].title} />
+      <Link href={`/blog/${slug}`}>
+        <Title>{title}</Title>
+      </Link>
+      <Description>
+        {_description}
+        <Link href={`/blog/${slug}`}>→</Link>
+      </Description>
+      <PostBy date={createdAt} />
     </Post>
   );
 };

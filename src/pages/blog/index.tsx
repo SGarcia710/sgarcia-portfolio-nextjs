@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import FeaturedPosts from '@/components/FeaturedPosts';
 import PostCard from '@/components/PostCard';
 import { GetServerSideProps, NextPage } from 'next';
 import Pagination from '@/components/Pagination';
@@ -10,6 +9,9 @@ import {
   YTransition,
   YTRANSITION_CONFIG,
 } from '@/components/AnimationsWrappers/YTransition';
+import FeaturedPost from '@/components/FeaturedPost';
+import { FiSearch } from 'react-icons/fi';
+import { COLORS, FONTS } from '@/constants';
 
 const Container = styled(YTransition)`
   width: 100%;
@@ -19,26 +21,89 @@ const Container = styled(YTransition)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (max-width: 812px) {
-    /* width: 100%; */
+`;
+
+const Header = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 96px;
+  position: relative;
+`;
+const Title = styled.h1`
+  font-size: 3rem;
+  font-family: ${FONTS.plusJakarta.extraBold};
+  color: ${COLORS.headingColor};
+`;
+const Headline = styled.h3`
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 18%;
+  text-align: center;
+  margin-bottom: 20px;
+`;
+const SearchContainer = styled.div`
+  width: 385px;
+  background-color: ${COLORS.lightBackground};
+  padding: 10px 12px 10px 22px;
+  display: flex;
+  border-radius: 16px;
+  justify-content: space-between;
+`;
+const SearchInput = styled.div`
+  display: flex;
+  align-items: center;
+  flex: 1;
+  svg {
+    font-size: 1.2rem;
+  }
+  input {
+    width: 100%;
+    margin-left: 4px;
+    font-size: 1rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: ${COLORS.darkFontColor};
+    &::placeholder {
+    }
+  }
+`;
+const Memoji = styled.img`
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  right: 26%;
+  top: 10%;
+`;
+const SearchButton = styled.div`
+  cursor: pointer;
+  height: fit-content;
+  padding: 3px 20px 3px 20px;
+  border-radius: 12px;
+  background-color: ${COLORS.headingColor};
+  p {
+    font-size: 0.85rem;
+    color: ${COLORS.background};
+  }
+  transition: 0.3s;
+  &:hover {
+    filter: brightness(1.2);
   }
 `;
 
 const PostsContainer = styled.div`
   width: 1024px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-row-gap: 30px;
-  justify-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
 
   @media (max-width: 812px) {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 0 16px;
   }
 `;
-const ITEMS_PER_PAGE = 9;
+const ITEMS_PER_PAGE = 7;
 
 const Posts: NextPage<{ posts: Post[]; page: number; count: number }> = (
   props
@@ -52,14 +117,41 @@ const Posts: NextPage<{ posts: Post[]; page: number; count: number }> = (
     router.push(`/blog?page=${newPage}`);
   };
 
-  const postsToRender = props.posts.slice(props.page === 1 ? 3 : 0);
+  const isFirstPage = props.page === 1;
 
   return (
     <Container {...YTRANSITION_CONFIG(0.1)}>
-      {props.page === 1 && <FeaturedPosts posts={props.posts.slice(0, 3)} />}
+      <Header>
+        <Memoji alt="Search Memoji" src="/images/Memoji7.png" />
+        <Title>Blog</Title>
+        <Headline>
+          lee los tutoriales, reseñas, snippets, historias y todo lo demás que
+          he escrito
+        </Headline>
+        <SearchContainer>
+          <SearchInput>
+            <FiSearch />
+            <input placeholder="Buscar" type="text" />
+          </SearchInput>
+          <SearchButton>
+            <p>Ir</p>
+          </SearchButton>
+        </SearchContainer>
+      </Header>
+      {!!isFirstPage && <FeaturedPost post={props.posts[0]} />}
+
       <PostsContainer>
         {React.Children.toArray(
-          postsToRender.map((post) => <PostCard post={post} />)
+          props.posts
+            .slice(!!isFirstPage ? 1 : 0, 4)
+            .map((post) => <PostCard post={post} />)
+        )}
+      </PostsContainer>
+      <PostsContainer>
+        {React.Children.toArray(
+          props.posts
+            .slice(!!isFirstPage ? 4 : 3, 7)
+            .map((post) => <PostCard post={post} />)
         )}
       </PostsContainer>
 

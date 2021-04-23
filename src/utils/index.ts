@@ -19,7 +19,7 @@ type GetResizedURLProps = {
   width?: number;
   fill?: boolean;
   height?: number;
-  quality?: 'auto';
+  quality?: 'auto' | number;
   scale?: boolean;
 };
 
@@ -98,6 +98,7 @@ const readingTime = ({
 
   return readTime === 1 ? `${readTime} ${singular}` : `${readTime} ${plural}`;
 };
+
 const isMobile = window.innerWidth <= 818 ? true : false;
 
 export { fetcher, changeExtension, getResizedURL, readingTime, isMobile };
