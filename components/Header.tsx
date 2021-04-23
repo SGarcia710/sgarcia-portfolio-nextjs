@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, useCycle } from 'framer-motion';
 import MenuButton from './MenuButton';
 import MobileNavigation from './MobileNavigation';
+import Lottie from 'react-lottie';
 
 const Container = styled(motion.div)`
   width: 100%;
@@ -20,12 +21,15 @@ const Container = styled(motion.div)`
 `;
 
 const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
   a {
     font-family: ${FONTS.plusJakarta.bold};
-    cursor: pointer;
     font-size: 1.5rem;
     color: white;
     margin-bottom: 0;
+    margin-left: 12px;
     @media (max-width: 425px) {
       font-size: 1.2rem;
     }
@@ -57,13 +61,22 @@ const NavBar = styled.nav`
     display: none;
   }
 `;
+import { useLogoAnimation } from '@/hooks';
 
 const Header = () => {
   const [isMenuOpen, setIsOpen] = useState(false);
+  const animation = useLogoAnimation();
   return (
     <Container animate={isMenuOpen ? 'open' : 'closed'}>
       <Link href="/">
         <LogoContainer>
+          <Lottie
+            width={60}
+            height={60}
+            options={{
+              animationData: animation,
+            }}
+          />
           <a>sebastián garcía</a>
         </LogoContainer>
       </Link>

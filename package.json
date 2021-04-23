@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@types/react-lottie": "^1.2.5",
     "@types/styled-components": "^5.1.9",
     "axios": "^0.21.1",
     "browser-monads": "^1.0.0",
@@ -23,6 +24,7 @@
     "react-cursor-custom": "^1.2.4",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
+    "react-lottie": "^1.2.3",
     "react-markdown": "^6.0.0",
     "react-syntax-highlighter": "^15.4.3",
     "remark-gfm": "^1.0.0",
