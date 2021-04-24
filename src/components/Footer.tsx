@@ -1,11 +1,10 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { FONTS } from '@/constants';
+import { COLORS, FONTS } from '@/constants';
 import NETWORKS from '@/constants/networks';
 
 const Container = styled.div`
   width: 100%;
-  padding: 28px 0;
 
   display: flex;
   flex-direction: column;
@@ -60,6 +59,20 @@ const Network = styled.a`
   }
 `;
 
+const Foot = styled.div`
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: ${COLORS.borderColor};
+  padding: 0 40px;
+  p {
+    font-size: 14px;
+    margin: 0;
+    font-family: ${FONTS.plusJakarta.medium};
+  }
+`;
+
 const Footer = () => {
   return (
     <Container>
@@ -75,6 +88,9 @@ const Footer = () => {
       <Text fontSize={12} fontFamily={FONTS.plusJakarta.light}>
         Made with ❤ in Colombia
       </Text>
+      <Foot>
+        <p>Made with ❤ in Colombia. Powered by Strapi and Nextjs</p>
+      </Foot>
     </Container>
   );
 };

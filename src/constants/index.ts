@@ -15,6 +15,7 @@ const COLORS = {
   headingColor: '#e7b996',
   darkFontColor: '#ced4da',
   background: '#1f2022',
+  background2: '#222323',
   mediumFontColor: '#dee2e6',
   lightFontColor: '#868e96',
   lightBackground: '#2d2d31',
@@ -42,7 +43,7 @@ const LINKS = {
     title: 'Blog',
   },
   about: {
-    url: '/',
+    url: '/about-me',
     title: 'About',
   },
   portfolio: {

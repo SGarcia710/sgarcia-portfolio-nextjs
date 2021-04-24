@@ -76,7 +76,6 @@ const MobileNavigation = ({
               {React.Children.toArray(
                 Object.values(LINKS).map((link) => {
                   const isForSoon = [
-                    LINKS.about.url,
                     LINKS.contact.url,
                     LINKS.portfolio.url,
                   ].includes(link.url);

@@ -98,11 +98,9 @@ const Header = () => {
       <NavBar>
         {React.Children.toArray(
           Object.values(LINKS).map((link) => {
-            const isForSoon = [
-              LINKS.about.url,
-              LINKS.contact.url,
-              LINKS.portfolio.url,
-            ].includes(link.url);
+            const isForSoon = [LINKS.contact.url, LINKS.portfolio.url].includes(
+              link.url
+            );
 
             return (
               <LinkContainer>
