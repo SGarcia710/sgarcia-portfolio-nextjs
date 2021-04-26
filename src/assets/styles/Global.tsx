@@ -48,6 +48,10 @@ const GlobalStyles = createGlobalStyle`
       margin: 0 0 1.5rem 0;
     }
   }
+
+  a{
+    color: ${COLORS.fontColor};
+  }
 `;
 
 export default GlobalStyles;

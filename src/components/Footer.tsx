@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { AiOutlineMail } from 'react-icons/ai';
 import { COLORS, FONTS } from '@/constants';
 import NETWORKS from '@/constants/networks';
 
@@ -9,87 +10,190 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 80px;
+
+  @media (max-width: 425px) {
+    margin-top: 60px;
+  }
 `;
 
-const Text = styled.p<{
-  fontSize?: number;
-  fontFamily?: string;
-}>`
-  color: white;
-  opacity: 0.7;
-  font-size: 18px;
-  font-family: ${(props) =>
-    !!props.fontFamily ? props.fontFamily : FONTS.plusJakarta.regular};
-  font-size: ${(props) =>
-    !!props.fontSize ? `${props.fontSize}px` : 'inherit'};
+const MainContainer = styled.div`
+  width: 1024px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid ${COLORS.lightBackgroundHover};
+  padding-top: 60px;
+  padding-bottom: 56px;
+
+  @media (max-width: 425px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 `;
 
 const Networks = styled.div`
-  margin: 8px 0;
-`;
+  display: flex;
 
-const glow = keyframes`
-  0% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-const glowReverse = keyframes`
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.7;
+  @media (max-width: 425px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 32px;
   }
 `;
 
 const Network = styled.a`
   color: white;
-  opacity: 0.7;
-  margin: 0 6px;
-  animation: ${glowReverse} 0.7s ease;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
   svg {
-    font-size: 24px;
+    font-size: 20px;
+
+    @media (max-width: 425px) {
+      font-size: 24px;
+    }
   }
 
+  border-radius: calc(54px / 2);
+  transition: 0.5s;
   &:hover {
-    animation: ${glow} 0.7s ease forwards;
+    background-color: ${COLORS.lightBackgroundHover};
+  }
+`;
+
+const Mail = styled.div`
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0;
+    padding: 0;
+
+    font-size: 16px;
+    letter-spacing: -0.03em;
+    font-family: ${FONTS.plusJakarta.medium};
+    color: white;
+    @media (max-width: 425px) {
+      font-size: 18px;
+    }
+  }
+`;
+const Icon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 18px;
+
+  position: relative;
+  width: 50px;
+  height: 50px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  svg {
+    font-size: 20px;
+    position: absolute;
+  }
+
+  @media (max-width: 425px) {
+    display: none;
   }
 `;
 
 const Foot = styled.div`
   width: 100vw;
-  height: 60px;
+  height: 50px;
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: ${COLORS.borderColor};
-  padding: 0 40px;
-  p {
-    font-size: 14px;
-    margin: 0;
-    font-family: ${FONTS.plusJakarta.medium};
+  div {
+    width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    p {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      margin: 0;
+      font-family: ${FONTS.plusJakarta.medium};
+      a,
+      img {
+        margin: 0 4px;
+      }
+      a {
+        text-decoration: underline;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+      img {
+        width: 18px;
+        height: 18px;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  @media (max-width: 425px) {
+    display: none;
   }
 `;
 
 const Footer = () => {
+  const NetworksToShow = NETWORKS.filter((network) =>
+    ['Twitter', 'Linkedin', 'Github', 'Twitch'].includes(network.name)
+  );
   return (
     <Container>
-      <Text>Find me on</Text>
+      <MainContainer>
+        <Networks>
+          {React.Children.toArray(
+            NetworksToShow.map((network) => (
+              <Network href={network.link} target="__blank">
+                {network.icon}
+              </Network>
+            ))
+          )}
+        </Networks>
+        <Mail>
+          <Icon>
+            <img src="/images/MenuCircle.svg" alt="Mail" />
+            <AiOutlineMail />
+          </Icon>
+          <p>contact@sebastiangarcia.dev</p>
+        </Mail>
+      </MainContainer>
 
-      <Networks>
-        {React.Children.toArray(
-          NETWORKS.map((network) => (
-            <Network href={network.link}>{network.icon}</Network>
-          ))
-        )}
-      </Networks>
-      <Text fontSize={12} fontFamily={FONTS.plusJakarta.light}>
-        Made with ❤ in Colombia
-      </Text>
       <Foot>
-        <p>Made with ❤ in Colombia. Powered by Strapi and Nextjs</p>
+        <div>
+          <p>
+            <img src="/images/develop.svg" alt="Develop" />
+            with
+            <img src="/images/heart.svg" alt="Love" />
+            in Colombia.
+          </p>
+          <p>
+            Powered by{' '}
+            <a href="https://strapi.io/" target="__blank">
+              Strapi
+            </a>{' '}
+            and{' '}
+            <a href="https://nextjs.org/" target="__blank">
+              Nextjs
+            </a>
+            .
+          </p>
+        </div>
       </Foot>
     </Container>
   );

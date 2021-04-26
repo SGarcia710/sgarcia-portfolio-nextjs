@@ -1,3 +1,7 @@
+import {
+  YTransition,
+  YTRANSITION_CONFIG,
+} from '@/components/AnimationsWrappers/YTransition';
 import { COLORS, FONTS } from '@/constants';
 import { NextPage } from 'next';
 import React from 'react';
@@ -67,35 +71,41 @@ const Description = styled.div`
 const AboutMe: NextPage = () => {
   return (
     <Container>
-      <Hero>
-        <Photo src="/images/avatar.jpg" />
-        <Bio>
-          <Column>
-            <Hello>Hello there!</Hello>
-            <ShortDescription>
-              My name is Sebastián <br /> and I{' '}
-              <ColoredText color={COLORS.headingColor}>develop</ColoredText> and{' '}
-              <br />
-              <ColoredText color={COLORS.headingColor}>teach</ColoredText>{' '}
-              <i>
-                (most of the
-                <br /> time)
-              </i>
-              .
-            </ShortDescription>
-          </Column>
-        </Bio>
-      </Hero>
+      <YTransition {...YTRANSITION_CONFIG(0.4)}>
+        <Hero>
+          <Photo src="/images/avatar.jpg" />
+          <Bio>
+            <Column>
+              <Hello>Hello there!</Hello>
+              <ShortDescription>
+                My name is Sebastián <br /> and I{' '}
+                <ColoredText color={COLORS.headingColor}>develop</ColoredText>{' '}
+                and <br />
+                <ColoredText color={COLORS.headingColor}>
+                  teach
+                </ColoredText>{' '}
+                <i>
+                  (most of the
+                  <br /> time)
+                </i>
+                .
+              </ShortDescription>
+            </Column>
+          </Bio>
+        </Hero>
+      </YTransition>
 
-      <Description>
-        <p>
-          My name is Sebastián. I am from Cali, Colombia. Currently living in
-          Chía, Colombia. I am a Semi Senior Frontend Developer experienced with
-          Reactjs-related technologies. I am a person that is feet committed to
-          all my responsibilities, and I'm always looking for experiences that
-          help me grow and form as a professional.
-        </p>
-      </Description>
+      <YTransition {...YTRANSITION_CONFIG(0.6)}>
+        <Description>
+          <p>
+            My name is Sebastián. I am from Cali, Colombia. Currently living in
+            Chía, Colombia. I am a Semi Senior Frontend Developer experienced
+            with Reactjs-related technologies. I am a person that is feet
+            committed to all my responsibilities, and I'm always looking for
+            experiences that help me grow and form as a professional.
+          </p>
+        </Description>
+      </YTransition>
     </Container>
   );
 };
