@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to sgarcia-portfolio 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.0.9-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-0.0.10-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/SGarcia710/sgarcia-portfolio-nextjs#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>

@@ -1,3 +1,7 @@
+import {
+  YTransition,
+  YTRANSITION_CONFIG,
+} from '@/components/AnimationsWrappers/YTransition';
 import OpacityButton from '@/components/OpacityButton';
 import { COLORS, FONTS } from '@/constants';
 import { NextPage } from 'next';
@@ -35,13 +39,21 @@ const NotFound: NextPage = () => {
   const router = useRouter();
   return (
     <Container>
-      <Image src="/images/Memoji8.png" />
-      <Title>404</Title>
-      <Headline>
-        Whoops, this is embarassing.
-        <br /> Looks like the page you were looking for <br /> wasn't found.
-      </Headline>
-      <OpacityButton callback={() => router.push('/')} label="Return home" />
+      <YTransition {...YTRANSITION_CONFIG(0.2)}>
+        <Image src="/images/Memoji8.png" />
+      </YTransition>
+      <YTransition {...YTRANSITION_CONFIG(0.4)}>
+        <Title>404</Title>
+      </YTransition>
+      <YTransition {...YTRANSITION_CONFIG(0.6)}>
+        <Headline>
+          Whoops, this is embarassing.
+          <br /> Looks like the page you were looking for <br /> wasn't found.
+        </Headline>
+      </YTransition>
+      <YTransition {...YTRANSITION_CONFIG(0.8)}>
+        <OpacityButton callback={() => router.push('/')} label="Return home" />
+      </YTransition>
     </Container>
   );
 };

@@ -32,6 +32,12 @@ const MainContainer = styled.div`
     padding-top: 40px;
     padding-bottom: 40px;
   }
+
+  @media (max-width: 818px) {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 `;
 
 const Networks = styled.div`
@@ -146,6 +152,13 @@ const Foot = styled.div`
   }
   @media (max-width: 425px) {
     display: none;
+  }
+
+  @media (max-width: 818px) {
+    div {
+      width: 100%;
+      padding: 0 16px;
+    }
   }
 `;
 

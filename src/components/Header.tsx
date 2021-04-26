@@ -20,6 +20,7 @@ const Container = styled(motion.div)`
 
   @media (max-width: 818px) {
     padding: 22px 16px;
+    margin-bottom: 60px;
   }
 `;
 
