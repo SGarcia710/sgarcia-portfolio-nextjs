@@ -49,7 +49,7 @@ const SEO = ({
       // Only included Twitter data if we have it
       twitter={{
         site: '@sebg96',
-        cardType: 'summary_large_image',
+        cardType: 'app',
         handle: '@sebg96',
         ...(twitterCardType && { cardType: twitterCardType }),
         ...(twitterUsername && { cardType: twitterUsername }),
