@@ -24,14 +24,16 @@ const Author = styled.p`
   color: white;
   font-family: ${FONTS.plusJakarta.bold};
   letter-spacing: 0.3px;
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     margin: 0;
   }
 `;
 const Date = styled.p`
   font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.6);
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     margin: 0;
   }
 `;

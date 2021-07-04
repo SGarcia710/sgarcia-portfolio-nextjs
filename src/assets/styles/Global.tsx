@@ -43,7 +43,8 @@ const GlobalStyles = createGlobalStyle`
   blockquote {
     font-size: 1.3rem;
 
-    @media (max-width: 425px) {
+    @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
       font-size: 1.05rem;
       margin: 0 0 1.5rem 0;
     }

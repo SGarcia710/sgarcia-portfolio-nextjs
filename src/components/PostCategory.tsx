@@ -92,7 +92,8 @@ const Container = styled.p`
   }
   @media (max-width: 818px) {
   }
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     font-size: 0.6rem;
   }
 `;

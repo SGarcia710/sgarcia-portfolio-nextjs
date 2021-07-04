@@ -52,7 +52,8 @@ const Memoji = styled.img`
     right: 8%;
     top: 5%;
   }
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     position: initial;
     width: 120px;
     height: 120px;
@@ -63,7 +64,8 @@ const Title = styled.h1`
   font-family: ${FONTS.plusJakarta.extraBold};
   color: ${COLORS.headingColor};
 
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     font-size: 2rem;
   }
 `;
@@ -75,7 +77,8 @@ const Headline = styled.h3`
   @media (max-width: 818px) {
     max-width: 40%;
   }
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     max-width: initial;
   }
 `;
@@ -87,7 +90,8 @@ const SearchContainer = styled.div`
   border-radius: 16px;
   justify-content: space-between;
 
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     width: 100%;
   }
 `;
@@ -146,7 +150,8 @@ const PostsContainer = styled.div`
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     display: flex;
     flex-direction: column;
     grid-row-gap: 0;

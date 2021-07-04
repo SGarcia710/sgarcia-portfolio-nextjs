@@ -28,7 +28,8 @@ const Post = styled.div`
       justify-self: end;
     }
   }
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     margin-bottom: 40px;
     width: 100%;
     &:last-child {
@@ -48,7 +49,8 @@ const Image = styled(motion.img)`
   @media (max-width: 818px) {
     height: 340px;
   }
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     display: none;
   }
 `;
@@ -67,7 +69,8 @@ const Title = styled.h4`
   cursor: pointer;
   @media (max-width: 818px) {
   }
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     max-width: 100%;
     font-size: 1.1rem;
   }
@@ -87,7 +90,8 @@ const Description = styled.p`
   }
   @media (max-width: 818px) {
   }
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     max-width: 100%;
   }
 `;

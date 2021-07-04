@@ -8,7 +8,7 @@ import {
 import SEO from '@/components/SEO';
 
 const Container = styled.div`
-  width: 100vw;
+  /* width: 100vw; */
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -43,7 +43,8 @@ const Headline = styled.h1`
   line-height: 1.11;
   margin-bottom: 48px;
 
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     font-size: 30px;
   }
   span {
@@ -60,7 +61,8 @@ const Description = styled.p`
   line-height: 1.4;
   font-size: 20px;
 
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     font-size: 18px;
   }
   strong {

@@ -18,7 +18,8 @@ const Container = styled.div`
     margin-bottom: 50px;
     border-bottom: 3px solid ${COLORS.borderColor};
   }
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     margin-bottom: 25px;
   }
 `;
@@ -35,7 +36,8 @@ const Image = styled(motion.img)`
     max-width: initial;
     margin-bottom: 16px;
   }
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     height: 230px;
   }
 `;
@@ -49,7 +51,8 @@ const Info = styled.div`
     margin-left: 0;
     margin-bottom: 15px;
   }
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
   }
 `;
 
@@ -64,7 +67,8 @@ const Title = styled.h2`
   @media (max-width: 818px) {
     max-width: 100%;
   }
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     font-size: 26px;
   }
 `;

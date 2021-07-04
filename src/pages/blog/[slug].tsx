@@ -24,7 +24,8 @@ const Image = styled(motion.img)`
   width: 100%;
   height: 400px;
   object-fit: cover;
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     height: 200px;
   }
 `;
@@ -51,7 +52,8 @@ const Title = styled.h1`
   line-height: 1.1;
   font-weight: 700;
   color: white;
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     font-size: 1.8rem;
     margin: 0;
     line-height: 1.15;
@@ -69,7 +71,8 @@ const Metadata = styled.div`
 const Sign = styled.p`
   color: ${COLORS.lightFontColor};
   margin: 0;
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     font-size: 0.9rem;
   }
   a {
@@ -83,7 +86,8 @@ const Sign = styled.p`
 const ReadingTime = styled.p`
   color: ${COLORS.lightFontColor};
   margin: 0;
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     font-size: 0.9rem;
   }
 `;
@@ -126,7 +130,8 @@ const Description = styled.h3`
   font-weight: 300;
   margin-top: 2rem;
 
-  @media (max-width: 425px) {
+  @media (max-width: 425px),
+    (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     font-size: 1.4rem;
   }
 `;
