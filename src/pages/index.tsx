@@ -5,6 +5,7 @@ import {
   YTransition,
   YTRANSITION_CONFIG,
 } from '@/components/AnimationsWrappers/YTransition';
+import SEO from '@/components/SEO';
 
 const Container = styled.div`
   flex: 1;
@@ -67,36 +68,65 @@ const Description = styled.p`
 
 export default function Home() {
   return (
-    <Container>
-      <YTransition {...YTRANSITION_CONFIG(0.4)}>
-        <Avatar>
-          <img src="/images/Memoji3.png" alt="Memoji" />
-        </Avatar>
-      </YTransition>
-      <YTransition {...YTRANSITION_CONFIG(0.5)}>
-        <Greeting>Hey, I'm Sebastián 🤟🏼</Greeting>
-      </YTransition>
-      <YTransition {...YTRANSITION_CONFIG(0.6)}>
-        <Headline>
-          <span>Building</span> High-Quality <br />
-          products and <span>teaching</span> <br />
-          how to develop them
-        </Headline>
-      </YTransition>
-      <YTransition {...YTRANSITION_CONFIG(0.7)}>
-        <Description>
-          a <strong>FullStack JavaScript Developer</strong> in Colombia. I
-          specialize
-          <br /> in Web and Mobile Development.
-        </Description>
-      </YTransition>
+    <>
+      <SEO
+        title="Sebastián García"
+        description="Bienvenido a mi página web persona. Conecta conmigo para consultorias, cotizaciones y mentoría."
+        ogImage={{
+          width: 192,
+          height: 192,
+          url: `/images/LogoWhite.png`,
+        }}
+        openGraph={{
+          images: [
+            {
+              width: 192,
+              height: 192,
+              alt: 'Sebastián García',
+              url: `/images/LogoWhite.png`,
+            },
+          ],
+          type: 'website',
+        }}
+        additionalMetaTags={[
+          {
+            name: 'twitter:image',
+            content: `/images/LogoWhite.png`,
+          },
+        ]}
+      />
 
-      <YTransition {...YTRANSITION_CONFIG(0.8)}>
-        <OpacityButton
-          label="Connect with me"
-          callback={() => console.log('Oprimiste contactarme')}
-        />
-      </YTransition>
-    </Container>
+      <Container>
+        <YTransition {...YTRANSITION_CONFIG(0.4)}>
+          <Avatar>
+            <img src="/images/Memoji3.png" alt="Memoji" />
+          </Avatar>
+        </YTransition>
+        <YTransition {...YTRANSITION_CONFIG(0.5)}>
+          <Greeting>Hey, I'm Sebastián 🤟🏼</Greeting>
+        </YTransition>
+        <YTransition {...YTRANSITION_CONFIG(0.6)}>
+          <Headline>
+            <span>Building</span> High-Quality <br />
+            products and <span>teaching</span> <br />
+            how to develop them
+          </Headline>
+        </YTransition>
+        <YTransition {...YTRANSITION_CONFIG(0.7)}>
+          <Description>
+            a <strong>FullStack JavaScript Developer</strong> in Colombia. I
+            specialize
+            <br /> in Web and Mobile Development.
+          </Description>
+        </YTransition>
+
+        <YTransition {...YTRANSITION_CONFIG(0.8)}>
+          <OpacityButton
+            label="Connect with me"
+            callback={() => console.log('Oprimiste contactarme')}
+          />
+        </YTransition>
+      </Container>
+    </>
   );
 }
