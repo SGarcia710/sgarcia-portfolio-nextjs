@@ -9,10 +9,37 @@ import Layout from '@/components/Layout';
 import { COLORS } from '@/constants';
 import ScrollToTop from '@/components/ScrollToTop';
 import Head from 'next/head';
+import SEO from '@/components/SEO';
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <SEO
+        title="Sebastián García"
+        description="Welcome to my personal website. Connect with me for consulting, mentoring and freelance."
+        ogImage={{
+          width: 192,
+          height: 192,
+          url: `/images/LogoWhite.png`,
+        }}
+        openGraph={{
+          images: [
+            {
+              width: 192,
+              height: 192,
+              alt: 'Sebastián García',
+              url: `/images/LogoWhite.png`,
+            },
+          ],
+          type: 'website',
+        }}
+        additionalMetaTags={[
+          {
+            name: 'twitter:image',
+            content: `/images/LogoWhite.png`,
+          },
+        ]}
+      />
       <Head>
         <link
           rel="apple-touch-icon"

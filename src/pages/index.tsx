@@ -5,10 +5,8 @@ import {
   YTransition,
   YTRANSITION_CONFIG,
 } from '@/components/AnimationsWrappers/YTransition';
-import SEO from '@/components/SEO';
 
 const Container = styled.div`
-  /* width: 100vw; */
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -72,33 +70,6 @@ const Description = styled.p`
 export default function Home() {
   return (
     <>
-      <SEO
-        title="Sebastián García"
-        description="Welcome to my personal website. Connect with me for consulting, mentoring and freelance."
-        ogImage={{
-          width: 192,
-          height: 192,
-          url: `/images/LogoWhite.png`,
-        }}
-        openGraph={{
-          images: [
-            {
-              width: 192,
-              height: 192,
-              alt: 'Sebastián García',
-              url: `/images/LogoWhite.png`,
-            },
-          ],
-          type: 'website',
-        }}
-        additionalMetaTags={[
-          {
-            name: 'twitter:image',
-            content: `/images/LogoWhite.png`,
-          },
-        ]}
-      />
-
       <Container>
         <YTransition {...YTRANSITION_CONFIG(0.4)}>
           <Avatar>
