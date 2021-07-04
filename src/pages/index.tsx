@@ -12,7 +12,6 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
 `;
 
 const Avatar = styled.div`
@@ -33,6 +32,7 @@ const Avatar = styled.div`
 const Greeting = styled.h3`
   font-size: 28px;
   margin-bottom: 32px;
+  color: white;
 `;
 
 const Headline = styled.h1`
@@ -40,6 +40,7 @@ const Headline = styled.h1`
   text-align: center;
   line-height: 1.11;
   margin-bottom: 48px;
+  color: white;
 
   @media (max-width: 425px),
     (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
@@ -58,6 +59,7 @@ const Description = styled.p`
   margin-bottom: 40px;
   line-height: 1.4;
   font-size: 20px;
+  color: white;
 
   @media (max-width: 425px),
     (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
