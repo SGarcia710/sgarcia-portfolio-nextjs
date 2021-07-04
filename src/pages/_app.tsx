@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
         ogImage={{
           width: 192,
           height: 192,
-          url: `/android-chrome-192x192.png`,
+          url: `/android-chrome-512x512.png`,
         }}
         openGraph={{
           images: [
@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
               width: 192,
               height: 192,
               alt: 'Sebastián García',
-              url: `/android-chrome-192x192.png`,
+              url: `/android-chrome-512x512.png`,
             },
           ],
           type: 'website',
@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }) {
         additionalMetaTags={[
           {
             name: 'twitter:image',
-            content: `/android-chrome-192x192.png`,
+            content: `/android-chrome-512x512.png`,
           },
         ]}
       />
