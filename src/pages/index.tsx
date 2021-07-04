@@ -71,7 +71,7 @@ export default function Home() {
     <>
       <SEO
         title="Sebastián García"
-        description="Bienvenido a mi página web persona. Conecta conmigo para consultorias, cotizaciones y mentoría."
+        description="Welcome to my personal website. Connect with me for consulting, mentoring and freelance."
         ogImage={{
           width: 192,
           height: 192,
