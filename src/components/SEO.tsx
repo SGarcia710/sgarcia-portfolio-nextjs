@@ -48,9 +48,9 @@ const SEO = ({
       }}
       // Only included Twitter data if we have it
       twitter={{
-        site: '@adictic_app',
+        site: '@sebg96',
         cardType: 'summary_large_image',
-        handle: '@adictic_app',
+        handle: '@sebg96',
         ...(twitterCardType && { cardType: twitterCardType }),
         ...(twitterUsername && { cardType: twitterUsername }),
       }}
@@ -65,16 +65,14 @@ const SEO = ({
         },
         {
           name: 'twitter:image',
-          content:
-            ogImage?.url ||
-            'https://adictic.com/static/media/Adictic.5f90d080.svg',
+          content: ogImage?.url,
         },
         {
           name: 'twitter:image:alt',
           content: title,
         },
       ]}
-      canonical="https://adictic.com"
+      canonical="https://sebastiangarcia.dev"
       {...props}
     />
   );
