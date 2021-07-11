@@ -53,7 +53,7 @@ const Headline = styled.div`
     font-size: 1.3rem;
     margin-bottom: 48px;
     text-align: center;
-    span {
+    a {
       text-decoration: underline;
       font-family: ${FONTS.plusJakarta.medium};
       cursor: pointer;
@@ -125,7 +125,8 @@ const Contact: NextPage = () => {
         </YTransition>
         <YTransition {...YTRANSITION_CONFIG(0.4)}>
           <h3>
-            Fill in the form or <span>Send us an email</span>
+            Fill in the form or{' '}
+            <a href="mailto:contact@sebastiangarcia.dev">Send us an email</a>
           </h3>
         </YTransition>
       </Headline>
