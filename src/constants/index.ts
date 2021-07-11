@@ -11,9 +11,9 @@ const FONTS = {
 };
 
 const COLORS = {
-  fontColor: '#b3b9c5',
+  fontColor: '#F8F8F8',
   headingColor: '#e7b996',
-  darkFontColor: '#ced4da',
+  darkFontColor: '#E8E9E4',
   background: '#1f2022',
   background2: '#222323',
   mediumFontColor: '#dee2e6',
@@ -51,7 +51,7 @@ const LINKS = {
     title: 'Portfolio',
   },
   contact: {
-    url: '/',
+    url: '/contact',
     title: 'Contact',
   },
 };

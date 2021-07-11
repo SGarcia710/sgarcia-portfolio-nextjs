@@ -2,13 +2,14 @@ import { FONTS } from '@/constants';
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div`
+const Container = styled.button`
   background-color: white;
   padding: 18px 38px;
   border-radius: 50px;
   cursor: pointer;
   transition: 650ms;
   border: 1px solid white;
+  width: fit-content;
   p {
     color: #222323;
     white-space: nowrap;
@@ -29,12 +30,13 @@ const Container = styled.div`
 
 interface OpacityButtonProps {
   label: string;
-  callback: () => void;
+  callback?: () => void;
+  type?: 'submit' | 'button';
 }
 
 const OpacityButton = (props: OpacityButtonProps) => {
   return (
-    <Container onClick={props.callback}>
+    <Container type={props.type || 'button'} onClick={props.callback || null}>
       <p>{props.label}</p>
     </Container>
   );
