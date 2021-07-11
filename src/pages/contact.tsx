@@ -126,7 +126,7 @@ const Contact: NextPage = () => {
         <YTransition {...YTRANSITION_CONFIG(0.4)}>
           <h3>
             Fill in the form or{' '}
-            <a href="mailto:contact@sebastiangarcia.dev">Send us an email</a>
+            <a href="mailto:contact@sebastiangarcia.dev">Send me an email</a>
           </h3>
         </YTransition>
       </Headline>
